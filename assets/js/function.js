@@ -33,12 +33,17 @@ function init(data) {
     $('#advise').css('display', 'block');  
     $('#comments_user').empty();     
     $('#comments_user').css("display", "block");
+    $('#wrap_loader_bar').css("display", "block");
+    $('#loader_btnSortear').css("display", "block");
+    $('#wrap_pre_load_opt').css("display", "block");
+    
 }
 
 function desctructure() {
     $('#advise').css('display', 'none');
     $('#commentsLoaderAnimation').css("display", "block");
     $('#comments_user').css("display", "none");  
+    $('#btnSortear').css("display", "block");
     // $('#comments_user').empty();  
     clearInterval();
     index = 0;
