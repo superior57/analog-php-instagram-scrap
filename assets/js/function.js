@@ -8,19 +8,8 @@ var interval = setInterval(() => {
 
         // alert(percent.toString());
 
-        var element = `<li${data[index]}</li><li${data[index+1]}</li><li${data[index+2]}</li>`;
-        $('#advise').css('display', 'block'); 
-        $('#commentsLoaderAnimation').css("display", "none");
-        $('#comments_user').css("display", "block");
-        $('#wrap_loader_bar').css("display", "block");
-        $('#loader_btnSortear').css("display", "block");
-        $('#wrap_pre_load_opt').css("display", "block");
-        $('#loader_bar').css('height', 35); 
-        $('#advise').css('background', 'transparent'); 
-        // $('#loader_bar').css('width', 0);         
-        $('#wrap_loader_bar').css('overflow', 'hidden');
-
-
+        var element = `<li${data[index]}</li><li${data[index+1]}</li><li${data[index+2]}</li>`;        
+        setStyles();
         var percent = index / 1;
             
         if(index == 1) {
@@ -31,6 +20,7 @@ var interval = setInterval(() => {
         
         index = index + 3;        
         scrollBottom($('#comments_user'));
+
         if(index == data.length - 1 || index > 100) {
             // alert(percent)
             desctructure();
@@ -45,30 +35,27 @@ function scrollBottom(element) {
     wtf.scrollTop(height);
 }
 
+function setStyles() {
+    $('#advise').css('display', 'block'); 
+    $('#commentsLoaderAnimation').css("display", "none");
+    $('#comments_user').css("display", "block");
+    $('#wrap_loader_bar').css("display", "block");
+    $('#loader_btnSortear').css("display", "block");
+    $('#wrap_pre_load_opt').css("display", "block");
+    $('#loader_bar').css('height', 35); 
+    $('#advise').css('background', 'transparent');       
+    $('#wrap_loader_bar').css('overflow', 'hidden');
+}
+
 function init(data) {
-    // alert(data.length);
-    // $('#advise').css('display', 'block');  
-    $('#comments_user').empty();     
-    // $('#comments_user').css("display", "block");
-    // $('#wrap_loader_bar').css("display", "block");
-    // $('#loader_btnSortear').css("display", "block");
-    // $('#wrap_pre_load_opt').css("display", "block");
-    // $('#loader_bar').css('height', 35); 
-    // $('#advise').css('background', 'transparent'); 
-    // // $('#loader_bar').css('width', 0); 
-    // $('#wrap_loader_bar').css('overflow', 'hidden'); 
-       
+    $('#comments_user').empty();            
 }
 
 function desctructure() {
-    // $('#advise').css('display', 'none');
-    // $('#commentsLoaderAnimation').css("display", "block");
-    // $('#comments_user').css("display", "none");  
     $('#btnSortear').css("display", "block");
     $('#btnSortear').removeClass("btn-disabled");
     $('#btnSortear').addClass("btn-red pulse");
     $('#loader_btnSortear').css("display", "none");
-    // $('#comments_user').empty();  
     clearInterval(interval);
     index = 0;
 }
