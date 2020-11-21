@@ -4,6 +4,7 @@ setInterval(() => {
     if($('#step_5').css('display') == "block") {
         var data = demoDatas.split('</li><li');
         var element = `<li${data[index]}</li><li${data[index+1]}</li><li${data[index+2]}</li>`;
+        $('#commentsLoaderAnimation').css("display", "none");
             
         if(index == 1) {
             init(data);
@@ -30,8 +31,7 @@ function scrollBottom(element) {
 function init(data) {
     // alert(data.length);
     $('#advise').css('display', 'block');  
-    $('#comments_user').empty(); 
-    $('#commentsLoaderAnimation').css("display", "none");
+    $('#comments_user').empty();     
     $('#comments_user').css("display", "block");
 }
 
