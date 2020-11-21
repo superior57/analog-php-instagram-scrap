@@ -1,6 +1,6 @@
 var index = 1;
 
-setInterval(() => {
+var interval = setInterval(() => {
     
     if($('#step_5').css('display') == "block") {
         
@@ -17,22 +17,24 @@ setInterval(() => {
         $('#wrap_pre_load_opt').css("display", "block");
         $('#loader_bar').css('height', 35); 
         $('#advise').css('background', 'transparent'); 
-        // $('#loader_bar').css('width', 0); 
-        $('#wrap_loader_bar').css('overflow', 'hidden'); 
-            var percent = index / 10;
+        // $('#loader_bar').css('width', 0);         
+        $('#wrap_loader_bar').css('overflow', 'hidden');
+
+
+        var percent = index / 1;
             
         if(index == 1) {
             init(data);
-        } 
-        if(index == data.length - 1 || percent == 100) {
-            desctructure();
-        } 
-        // alert(percent);
+        }         
         $('#loader_bar').css('width', `${percent}%` )
         $('#comments_user').append(element); 
         
         index = index + 3;        
         scrollBottom($('#comments_user'));
+        if(index == data.length - 1 || index > 100) {
+            // alert(percent)
+            desctructure();
+        } 
     }    
     
 }, 300);
@@ -59,11 +61,12 @@ function init(data) {
 }
 
 function desctructure() {
-    $('#advise').css('display', 'none');
-    $('#commentsLoaderAnimation').css("display", "block");
-    $('#comments_user').css("display", "none");  
+    // $('#advise').css('display', 'none');
+    // $('#commentsLoaderAnimation').css("display", "block");
+    // $('#comments_user').css("display", "none");  
     $('#btnSortear').css("display", "block");
+    $('#loader_btnSortear').css("display", "none");
     // $('#comments_user').empty();  
-    clearInterval();
+    clearInterval(interval);
     index = 0;
 }
