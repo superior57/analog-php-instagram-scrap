@@ -1,26 +1,32 @@
 var index = 1;
+
 setInterval(() => {
     
     if($('#step_5').css('display') == "block") {
+        
         var data = demoDatas.split('</li><li');
+
+        // alert(percent.toString());
+
         var element = `<li${data[index]}</li><li${data[index+1]}</li><li${data[index+2]}</li>`;
         $('#commentsLoaderAnimation').css("display", "none");
+        var percent = index / 10;
             
         if(index == 1) {
             init(data);
         } 
-        if(index == data.length - 1) {
+        if(index == data.length - 1 || percent == 100) {
             desctructure();
         } 
-        
-        $('#loader_bar').css('width', index)
+        // alert(percent);
+        $('#loader_bar').css('width', `${percent}%` )
         $('#comments_user').append(element); 
         
         index = index + 3;        
         scrollBottom($('#comments_user'));
     }    
     
-}, 500);
+}, 300);
 
 function scrollBottom(element) {
     var wtf    = element;
@@ -38,7 +44,9 @@ function init(data) {
     $('#wrap_pre_load_opt').css("display", "block");
     $('#loader_bar').css('height', 35); 
     $('#advise').css('background', 'transparent'); 
-    
+    $('#loader_bar').css('width', 0); 
+    $('#wrap_loader_bar').css('overflow', 'hidden'); 
+       
 }
 
 function desctructure() {
