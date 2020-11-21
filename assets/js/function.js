@@ -1,10 +1,14 @@
 var index = 1;
-
-var interval = setInterval(() => {
-    
+var interval = setInterval(() => {    
     if($('#step_5').css('display') == "block") {        
         var data = demoDatas.split('</li><li');
-        var element = `<li${data[index]}</li><li${data[index+1]}</li><li${data[index+2]}</li>`;      
+        var max = data.length;
+        var index_1 = getRndInteger(1, max);
+        var index_2 = getRndInteger(1, max);
+        var index_3 = getRndInteger(1, max);
+        // alert(`${index_1}, ${index_2}, ${index_3}`);
+        // Math.random
+        var element = `<li${data[index_1]}</li><li${data[index_2]}</li><li${data[index_3]}</li>`;      
         var percent = index / 1;
 
         setStyles();            
@@ -53,4 +57,8 @@ function desctructure() {
     $('#loader_btnSortear').css("display", "none");
     clearInterval(interval);
     index = 0;
+}
+
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
