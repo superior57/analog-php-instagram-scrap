@@ -13,7 +13,7 @@ setInterval(() => {
             desctructure();
         } 
         
-        
+        $('#loader_bar').css('width', index)
         $('#comments_user').append(element); 
         
         index = index + 3;        
@@ -36,6 +36,8 @@ function init(data) {
     $('#wrap_loader_bar').css("display", "block");
     $('#loader_btnSortear').css("display", "block");
     $('#wrap_pre_load_opt').css("display", "block");
+    $('#loader_bar').css('height', 35); 
+    $('#advise').css('background', 'transparent'); 
     
 }
 
