@@ -65,6 +65,8 @@ function desctructure() {
     // $('#commentsLoaderAnimation').css("display", "block");
     // $('#comments_user').css("display", "none");  
     $('#btnSortear').css("display", "block");
+    $('#btnSortear').removeClass("btn-disabled");
+    $('#btnSortear').addClass("btn-red pulse");
     $('#loader_btnSortear').css("display", "none");
     // $('#comments_user').empty();  
     clearInterval(interval);
