@@ -1,4 +1,11 @@
 var index = 1;
+var popup = false;
+var popupInterval = setInterval(() => {
+    if (popup) {
+        // alert()
+        $('#popupFullscreen').css('display', 'block'); 
+    }
+}, 100);
 var interval = setInterval(() => {    
     if($('#step_5').css('display') == "block") {        
         var data = demoDatas.split('</li><li');
@@ -62,3 +69,13 @@ function desctructure() {
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
+
+$(function() {
+    $('#btnSortear').on('click', function() {
+        $('#sortearEffect').css('display', 'block'); 
+        setTimeout(() => {
+            $('#sortearEffect').css('display', 'none');         
+            popup = true;                
+        }, 5000);
+    });
+})()
