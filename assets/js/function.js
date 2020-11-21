@@ -28,7 +28,7 @@ function scrollBottom(element) {
 }
 
 function init(data) {
-    alert(data.length);
+    // alert(data.length);
     $('#advise').css('display', 'block');  
     $('#comments_user').empty(); 
     $('#commentsLoaderAnimation').css("display", "none");
