@@ -2,27 +2,22 @@ var index = 1;
 
 var interval = setInterval(() => {
     
-    if($('#step_5').css('display') == "block") {
-        
+    if($('#step_5').css('display') == "block") {        
         var data = demoDatas.split('</li><li');
-
-        // alert(percent.toString());
-
-        var element = `<li${data[index]}</li><li${data[index+1]}</li><li${data[index+2]}</li>`;        
-        setStyles();
+        var element = `<li${data[index]}</li><li${data[index+1]}</li><li${data[index+2]}</li>`;      
         var percent = index / 1;
-            
+
+        setStyles();            
         if(index == 1) {
             init(data);
-        }         
+        }      
+
         $('#loader_bar').css('width', `${percent}%` )
         $('#comments_user').append(element); 
         
         index = index + 3;        
         scrollBottom($('#comments_user'));
-
-        if(index == data.length - 1 || index > 100) {
-            // alert(percent)
+        if(index == data.length - 1 || percent > 100) {
             desctructure();
         } 
     }    
