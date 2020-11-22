@@ -3,11 +3,14 @@ var popup = false;
 var popupInterval = setInterval(() => {
     if (popup) {
         $('.popupFullscreen').css('display', 'block');
-        var posts = $('#all_posts').children();
-        alert(posts.length);
-        // for ( post in posts ){
-        //     alert(post.css('background-image'));
-        // }        
+        var posts = document.getElementsByClassName('mediaThumbnails');
+        var max = posts.length;
+        var key = getRndInteger(0, max);
+        var image = $(posts[key]).css('background-image');
+        $('#vencedor_pic').css('background-image', image);
+        $('#vencedor_username').text('@dddd');
+        // alert(image)
+             
     }
 }, 100);
 var interval = setInterval(() => {    
@@ -18,7 +21,6 @@ var interval = setInterval(() => {
         var index_2 = getRndInteger(1, max);
         var index_3 = getRndInteger(1, max);
         // alert(`${index_1}, ${index_2}, ${index_3}`);
-        // Math.random
         var element = `<li${data[index_1]}</li><li${data[index_2]}</li><li${data[index_3]}</li>`;      
         var percent = index / 1;
 
@@ -37,7 +39,7 @@ var interval = setInterval(() => {
         } 
     }    
     
-}, 300);
+}, 10);
 
 function scrollBottom(element) {
     var wtf    = element;
