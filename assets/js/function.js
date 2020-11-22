@@ -46,7 +46,7 @@ var interval = setInterval(() => {
         } 
     }    
     
-}, 10);
+}, 300);
 
 function scrollBottom(element) {
     var wtf    = element;
