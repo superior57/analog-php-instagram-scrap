@@ -17,6 +17,7 @@ var popupInterval = setInterval(() => {
             $('#vencedor_pic').css('background-image', image);
             $('#vencedor_username').text(username); 
             $('.vencedor_link').attr('href', `https://www.instagram.com/${username.replace('@', '')}`)
+            $('#vencedor_caption').text('😂😂😂😂😂')
             selectedDown = true;
         }            
     }
