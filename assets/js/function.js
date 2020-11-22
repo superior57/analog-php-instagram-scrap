@@ -2,6 +2,7 @@ var index = 1;
 var popup = false;
 var selectedDown = false;
 var popupInterval = setInterval(() => {
+    $('#commentsLoaderAnimation').css("display", "none");
     if (popup) {
         $('.popupFullscreen').css('display', 'block');
         if(!selectedDown) {
@@ -55,7 +56,7 @@ function scrollBottom(element) {
 
 function setStyles() {
     $('#advise').css('display', 'block'); 
-    $('#commentsLoaderAnimation').css("display", "none");
+    
     $('#comments_user').css("display", "block");
     $('#wrap_loader_bar').css("display", "block");
     $('#loader_btnSortear').css("display", "block");
