@@ -11,8 +11,10 @@ var popupInterval = setInterval(() => {
             var key = getRndInteger(0, max);
             var image = $(posts[key]).css('background-image');
             var user = $(users[key]).children('.userBold'); 
+            var username = user[0].textContent;
             $('#vencedor_pic').css('background-image', image);
-            $('#vencedor_username').text(user[0].textContent); 
+            $('#vencedor_username').text(username); 
+            $('.vencedor_link').attr('href', `https://www.instagram.com/${username.replace('@', '')}`)
             selectedDown = true;
         }            
     }
