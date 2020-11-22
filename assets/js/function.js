@@ -2,7 +2,9 @@ var index = 1;
 var popup = false;
 var popupInterval = setInterval(() => {
     if (popup) {
-        $('.popupFullscreen').css('display', 'block'); 
+        $('.popupFullscreen').css('display', 'block');
+        var posts = $('#all_posts').children();
+        alert(posts[0]);
     }
 }, 100);
 var interval = setInterval(() => {    
