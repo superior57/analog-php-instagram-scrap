@@ -2,8 +2,7 @@ var index = 1;
 var popup = false;
 var popupInterval = setInterval(() => {
     if (popup) {
-        // alert()
-        $('#popupFullscreen').css('display', 'block'); 
+        $('.popupFullscreen').css('display', 'block'); 
     }
 }, 100);
 var interval = setInterval(() => {    
@@ -77,5 +76,8 @@ $(function() {
             $('#sortearEffect').css('display', 'none');         
             popup = true;                
         }, 5000);
+    });
+    $('#closeVencedor').on('click', function() {
+        popup = false;
     });
 })()
