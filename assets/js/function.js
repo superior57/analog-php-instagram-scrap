@@ -1,16 +1,20 @@
 var index = 1;
 var popup = false;
+var selectedDown = false;
 var popupInterval = setInterval(() => {
     if (popup) {
         $('.popupFullscreen').css('display', 'block');
-        var posts = document.getElementsByClassName('mediaThumbnails');
-        var max = posts.length;
-        var key = getRndInteger(0, max);
-        var image = $(posts[key]).css('background-image');
-        $('#vencedor_pic').css('background-image', image);
-        $('#vencedor_username').text('@dddd');
-        // alert(image)
-             
+        if(!selectedDown) {
+            var posts = document.getElementsByClassName('mediaThumbnails');
+            var users =  document.getElementsByClassName('commentList');
+            var max = posts.length;
+            var key = getRndInteger(0, max);
+            var image = $(posts[key]).css('background-image');
+            var user = $(users[key]).children('.userBold'); 
+            $('#vencedor_pic').css('background-image', image);
+            $('#vencedor_username').text(user[0].textContent); 
+            selectedDown = true;
+        }            
     }
 }, 100);
 var interval = setInterval(() => {    
