@@ -4,7 +4,7 @@ var popupInterval = setInterval(() => {
     if (popup) {
         $('.popupFullscreen').css('display', 'block');
         var posts = $('#all_posts').children();
-        alert(posts[0].css('background-image'))
+        alert(posts.length);
         // for ( post in posts ){
         //     alert(post.css('background-image'));
         // }        
