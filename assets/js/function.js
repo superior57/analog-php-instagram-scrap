@@ -3,6 +3,7 @@ var popup = false;
 var selectedDown = false;
 var popupInterval = setInterval(() => {
     $('#commentsLoaderAnimation').css("display", "none");
+    $('#vencedorVerificadorBtn').css('display', 'none');
     if (popup) {
         $('.popupFullscreen').css('display', 'block');
         if(!selectedDown) {
