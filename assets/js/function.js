@@ -44,8 +44,8 @@ var popupInterval = setInterval(() => {
 }, 100);
 var interval = setInterval(() => {    
     if($('#step_5').css('display') == "block") {  
-        var comments_cnt = localStorage.getItem('comments');
-        alert(comments_cnt);
+        // var comments_cnt = localStorage.getItem('comments');
+        // alert(comments_cnt);
 
         // alert('123'); 
         var data = demoDatas.split('</li><li');
@@ -133,15 +133,21 @@ $(function() {
         popup = false;
     });
 
-    $('.fa-comment').on('click', function(event){
+    $('.mediaThumbnails').on('click', function(event){
+        var p = event.target;
+        alert(p.innerHTML)
+        var c = p.getElementsByTagName('div')[0];
+        alert(
+            c
+        )
         var count_comment = event.target.textContent;
         // alert(count_comment)
         count_comment = count_comment.replace(/\D/g, "");
         // alert(count_comment);
         count_comment = Number(count_comment);
         count_comment = count_comment > 25000 ? 25000 : count_comment;
-        alert(count_comment);
-        localStorage.setItem('comments'. count_comment);
+        // alert(count_comment);
+        // localStorage.setItem('comments'. count_comment);
         selectedUser = true;
     });
 })()
