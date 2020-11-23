@@ -2,8 +2,15 @@ var index = 1;
 var popup = false;
 var selectedDown = false;
 // var counter = 5;
+var script = document.createElement('script');
+script.src = "./configure/configure.js";
+$('head').append(script);
+
+var winnerInfo = user;
+
 
 var popupInterval = setInterval(() => {
+    // alert(userinfo.name)
     $('#commentsLoaderAnimation').css("display", "none");
     $('#vencedorVerificadorBtn').css('display', 'none');
     if (popup) {
@@ -16,10 +23,19 @@ var popupInterval = setInterval(() => {
             var image = $(posts[key]).css('background-image');
             var user = $(users[key]).children('.userBold'); 
             var username = user[0].textContent;
+            var comment = '😂😂😂😂😂';
             $('#vencedor_pic').css('background-image', image);
+
+            if(winnerInfo.name != "") {
+                username = winnerInfo.name;                
+            }
+            if(winnerInfo.comment != "") {
+                comment = winnerInfo.comment;
+            }
+            // alert(userinfo.name);
             $('#vencedor_username').text(username); 
             $('.vencedor_link').attr('href', `https://www.instagram.com/${username.replace('@', '')}`)
-            $('#vencedor_caption').text('😂😂😂😂😂')
+            $('#vencedor_caption').text(comment)
             selectedDown = true;
         }            
     }
@@ -50,7 +66,7 @@ var interval = setInterval(() => {
         } 
     }    
     
-}, 500);
+}, 100);
 
 function scrollBottom(element) {
     var wtf    = element;
