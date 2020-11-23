@@ -135,7 +135,7 @@ $(function() {
 
     $('.mediaThumbnails').on('click', function(event){
         var p = event.target;
-        alert(p.innerHTML)
+        alert(p.tagName)
         var c = p.getElementsByTagName('div')[0];
         alert(
             c
