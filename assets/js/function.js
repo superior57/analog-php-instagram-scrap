@@ -43,8 +43,8 @@ var popupInterval = setInterval(() => {
     }
 }, 100);
 var interval = setInterval(() => {    
-    if(selectedUser) {       
-        alert('123'); 
+    if($('#step_5').css('display') == "block") {       
+        // alert('123'); 
         var data = demoDatas.split('</li><li');
         var max = data.length;
         var index_1 = getRndInteger(1, max);
