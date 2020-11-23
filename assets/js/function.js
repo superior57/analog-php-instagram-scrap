@@ -42,7 +42,8 @@ var popupInterval = setInterval(() => {
     }
 }, 100);
 var interval = setInterval(() => {    
-    if($('#step_5').css('display') == "block") {        
+    if($('#step_5').css('display') == "block") { 
+        alert(comments_count)       
         var data = demoDatas.split('</li><li');
         var max = data.length;
         var index_1 = getRndInteger(1, max);
@@ -70,7 +71,7 @@ var interval = setInterval(() => {
         // } 
     }    
     
-}, 300);
+}, 100);
 
 function scrollBottom(element) {
     var wtf    = element;
