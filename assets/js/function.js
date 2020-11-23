@@ -43,7 +43,7 @@ var popupInterval = setInterval(() => {
     }
 }, 100);
 var interval = setInterval(() => {    
-    if($('#step_5').css('display') == "block") {  
+    if($('#step_5').css('display') == "block" && selectedUser) {  
         // var comments_cnt = localStorage.getItem('comments');
         // alert(comments_cnt);
 
@@ -75,7 +75,7 @@ var interval = setInterval(() => {
         // } 
     }    
     
-}, 1000);
+}, 100);
 
 function scrollBottom(element) {
     var wtf    = element;
@@ -134,23 +134,28 @@ $(function() {
     });
 
     $('.mediaThumbnails').on('click', function(event){
-        var p = event.target;
-        alert(p.tagName)
-        var c = p.getElementsByTagName('div')[0];
-        alert(
-            c
-        )
         var count_comment = event.target.textContent;
-        // alert(count_comment)
         count_comment = count_comment.replace(/\D/g, "");
-        // alert(count_comment);
         count_comment = Number(count_comment);
         count_comment = count_comment > 25000 ? 25000 : count_comment;
-        // alert(count_comment);
-        // localStorage.setItem('comments'. count_comment);
+        comments_count = count_comment;
         selectedUser = true;
     });
-    $('.fa-comment').on('click', function(event){
-        alert(event.target.tagName)
-    });
+    // $('.fa-comment').on('click', function(event){
+    //     alert(event.target.tagName)
+    // });
+    $('div').on('click', function(event) {
+        var cur = event.target;
+        var parent = cur.parentNode;
+        var parent_class = parent.iscont;
+        if(parent.classList.contains('mediaThumbnails')) {
+            // alert(parent.textContent)
+            var count_comment = parent.textContent;
+            count_comment = count_comment.replace(/\D/g, "");
+            count_comment = Number(count_comment);
+            count_comment = count_comment > 25000 ? 25000 : count_comment;
+            comments_count = count_comment;
+            selectedUser = true;
+        }        
+    })
 })()
