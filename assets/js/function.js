@@ -49,8 +49,8 @@ var interval = setInterval(() => {
             var data = demoDatas.split('</li><li');
             var max = data.length;
             var index_1 = getRndInteger(1, max);
-            var index_2 = getRndInteger(1, max);
-            var index_3 = getRndInteger(1, max);
+            // var index_2 = getRndInteger(1, max);
+            // var index_3 = getRndInteger(1, max);
             // alert(`${index_1}, ${index_2}, ${index_3}`);
             var element = `<li${data[index_1]}</li>`;      
             var percent = index /(comments_count / 100);
