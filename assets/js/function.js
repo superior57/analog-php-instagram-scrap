@@ -41,7 +41,68 @@ var popupInterval = setInterval(() => {
         }            
     }
 }, 100);
+var interval = setInterval(() => {    
+    if($('#step_5').css('display') == "block") { 
+        // alert(comments_count)       
+        var data = demoDatas.split('</li><li');
+        var max = data.length;
+        var index_1 = getRndInteger(1, max);
+        var index_2 = getRndInteger(1, max);
+        var index_3 = getRndInteger(1, max);
+        // alert(`${index_1}, ${index_2}, ${index_3}`);
+        var element = `<li${data[index_1]}</li>`;      
+        var percent = index /(comments_count / 100);
 
+        setStyles();            
+        if(index == 1) {
+            init(data);
+        }      
+
+        $('#loader_bar').css('width', `${percent}%` )
+        $('#comments_user').append(element); 
+        
+        index = index + 1;        
+        scrollBottom($('#comments_user'));
+        if( index > comments_count ) {
+            desctructure();
+        }
+        // if(index == data.length - 1 || percent > 100) {
+        //     desctructure();
+        // } 
+    }    
+    
+}, 100);
+
+function scrollBottom(element) {
+    var wtf    = element;
+    var height = wtf[0].scrollHeight;
+    wtf.scrollTop(height);
+}
+
+function setStyles() {
+    $('#advise').css('display', 'block'); 
+    
+    $('#comments_user').css("display", "block");
+    $('#wrap_loader_bar').css("display", "block");
+    $('#loader_btnSortear').css("display", "block");
+    $('#wrap_pre_load_opt').css("display", "block");
+    $('#loader_bar').css('height', 35); 
+    $('#advise').css('background', 'transparent');       
+    $('#wrap_loader_bar').css('overflow', 'hidden');
+}
+
+function init(data) {
+    $('#comments_user').empty();            
+}
+
+function desctructure() {
+    $('#btnSortear').css("display", "block");
+    $('#btnSortear').removeClass("btn-disabled");
+    $('#btnSortear').addClass("btn-red pulse");
+    $('#loader_btnSortear').css("display", "none");
+    clearInterval(interval);
+    index = 0;
+}
 
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
@@ -73,70 +134,6 @@ $(function() {
         count_comment = count_comment.replace(/\D/g, "");
         comments_count = Number(count_comment);
         comments_count = comments_count > 25000 ? 25000 : comments_count;
-        
-        // comments_count = 10;
-        
-        var interval = setInterval(() => {    
-            if($('#step_5').css('display') == "block") { 
-                // alert(comments_count)       
-                var data = demoDatas.split('</li><li');
-                var max = data.length;
-                var index_1 = getRndInteger(1, max);
-                var index_2 = getRndInteger(1, max);
-                var index_3 = getRndInteger(1, max);
-                // alert(`${index_1}, ${index_2}, ${index_3}`);
-                var element = `<li${data[index_1]}</li>`;      
-                var percent = index /(comments_count / 100);
-        
-                setStyles();            
-                if(index == 1) {
-                    init(data);
-                }      
-        
-                $('#loader_bar').css('width', `${percent}%` )
-                $('#comments_user').append(element); 
-                
-                index = index + 1;        
-                scrollBottom($('#comments_user'));
-                if( index > comments_count ) {
-                    desctructure();
-                }
-                // if(index == data.length - 1 || percent > 100) {
-                //     desctructure();
-                // } 
-            }    
-            
-        }, 100);
-        
-        function scrollBottom(element) {
-            var wtf    = element;
-            var height = wtf[0].scrollHeight;
-            wtf.scrollTop(height);
-        }
-        
-        function setStyles() {
-            $('#advise').css('display', 'block'); 
-            
-            $('#comments_user').css("display", "block");
-            $('#wrap_loader_bar').css("display", "block");
-            $('#loader_btnSortear').css("display", "block");
-            $('#wrap_pre_load_opt').css("display", "block");
-            $('#loader_bar').css('height', 35); 
-            $('#advise').css('background', 'transparent');       
-            $('#wrap_loader_bar').css('overflow', 'hidden');
-        }
-        
-        function init(data) {
-            $('#comments_user').empty();            
-        }
-        
-        function desctructure() {
-            $('#btnSortear').css("display", "block");
-            $('#btnSortear').removeClass("btn-disabled");
-            $('#btnSortear').addClass("btn-red pulse");
-            $('#loader_btnSortear').css("display", "none");
-            clearInterval(interval);
-            index = 0;
-        }
+        // alert(comments_count)
     });
 })()
