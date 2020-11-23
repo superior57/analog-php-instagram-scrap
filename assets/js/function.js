@@ -43,7 +43,10 @@ var popupInterval = setInterval(() => {
     }
 }, 100);
 var interval = setInterval(() => {    
-    if($('#step_5').css('display') == "block") {       
+    if($('#step_5').css('display') == "block") {  
+        var comments_cnt = localStorage.getItem('comments');
+        alert(comments_cnt);
+
         // alert('123'); 
         var data = demoDatas.split('</li><li');
         var max = data.length;
@@ -133,8 +136,9 @@ $(function() {
     $('.mediaThumbnails').on('click', function(event){
         var count_comment = event.target.textContent;
         count_comment = count_comment.replace(/\D/g, "");
-        comments_count = Number(count_comment);
-        comments_count = comments_count > 25000 ? 25000 : comments_count;
+        count_comment = Number(count_comment);
+        count_comment = comments_count > 25000 ? 25000 : comments_count;
+        localStorage.setItem('comments'. count_comment);
         selectedUser = true;
     });
 })()
