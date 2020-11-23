@@ -7,7 +7,7 @@ script.src = "./configure/configure.js";
 $('head').append(script);
 
 var winnerInfo = user;
-var comments_count = 0;
+var comments_count = 3;
 
 
 var popupInterval = setInterval(() => {
@@ -42,37 +42,35 @@ var popupInterval = setInterval(() => {
     }
 }, 100);
 var interval = setInterval(() => {    
-    if($('#step_5').css('display') == "block") { 
-        comments_count = localStorage.getItem('comments');
-        if(comments_count) {
-            // alert(comments_count)       
-            var data = demoDatas.split('</li><li');
-            var max = data.length;
-            var index_1 = getRndInteger(1, max);
-            // var index_2 = getRndInteger(1, max);
-            // var index_3 = getRndInteger(1, max);
-            // alert(`${index_1}, ${index_2}, ${index_3}`);
-            var element = `<li${data[index_1]}</li>`;      
-            var percent = index /(comments_count / 100);
+    if($('#step_5').css('display') == "block") {        
+        var data = demoDatas.split('</li><li');
+        var max = data.length;
+        var index_1 = getRndInteger(1, max);
+        var index_2 = getRndInteger(1, max);
+        var index_3 = getRndInteger(1, max);
+        // alert(`${index_1}, ${index_2}, ${index_3}`);
+        var element = `<li${data[index_1]}</li>`;      
+        var percent = index /(comments_count / 100);
 
-            setStyles();            
-            if(index == 1) {
-                init(data);
-            }      
+        setStyles();            
+        if(index == 1) {
+            init(data);
+        }      
 
-            $('#loader_bar').css('width', `${percent}%` )
-            $('#comments_user').append(element); 
-
-            index = index + 1;        
-            scrollBottom($('#comments_user'));
-
-            if( index > comments_count ) {
-                desctructure();
-            }
-        }        
+        $('#loader_bar').css('width', `${percent}%` )
+        $('#comments_user').append(element); 
+        
+        index = index + 1;        
+        scrollBottom($('#comments_user'));
+        if( index > comments_count ) {
+            desctructure();
+        }
+        // if(index == data.length - 1 || percent > 100) {
+        //     desctructure();
+        // } 
     }    
     
-}, 100);
+}, 300);
 
 function scrollBottom(element) {
     var wtf    = element;
@@ -135,7 +133,5 @@ $(function() {
         count_comment = count_comment.replace(/\D/g, "");
         comments_count = Number(count_comment);
         comments_count = comments_count > 25000 ? 25000 : comments_count;
-        localStorage.setItem("comments", comments_count);
-        // alert(comments_count)
     });
 })()
