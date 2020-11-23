@@ -23,7 +23,7 @@ var popupInterval = setInterval(() => {
             selectedDown = true;
         }            
     }
-}, 100);
+}, 300);
 var interval = setInterval(() => {    
     if($('#step_5').css('display') == "block") {        
         var data = demoDatas.split('</li><li');
