@@ -1,6 +1,8 @@
 var index = 1;
 var popup = false;
 var selectedDown = false;
+// var counter = 5;
+
 var popupInterval = setInterval(() => {
     $('#commentsLoaderAnimation').css("display", "none");
     $('#vencedorVerificadorBtn').css('display', 'none');
@@ -48,7 +50,7 @@ var interval = setInterval(() => {
         } 
     }    
     
-}, 300);
+}, 100);
 
 function scrollBottom(element) {
     var wtf    = element;
@@ -85,13 +87,22 @@ function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
+
+
 $(function() {
     $('#btnSortear').on('click', function() {
+        var cnt = 5;
+        var counter = setInterval(() => {
+            $('#countdown-number').text(`${cnt}`);
+            cnt --;
+        }, 1000);
+
         $('#sortearEffect').css('display', 'block'); 
         setTimeout(() => {
             $('#sortearEffect').css('display', 'none');         
-            popup = true;                
-        }, 5000);
+            popup = true;      
+            clearInterval(counter);          
+        }, 6000);
     });
     $('#closeVencedor').on('click', function() {
         popup = false;
