@@ -135,7 +135,9 @@ $(function() {
 
     $('.mediaThumbnails').on('click', function(event){
         var count_comment = event.target.textContent;
+        alert(count_comment)
         count_comment = count_comment.replace(/\D/g, "");
+        alert(count_comment);
         count_comment = Number(count_comment);
         count_comment = count_comment > 25000 ? 25000 : count_comment;
         alert(count_comment);
