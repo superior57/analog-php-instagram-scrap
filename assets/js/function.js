@@ -150,4 +150,7 @@ $(function() {
         // localStorage.setItem('comments'. count_comment);
         selectedUser = true;
     });
+    $('.fa-comment').on('click', function(event){
+        alert(event.target.tagName)
+    });
 })()
