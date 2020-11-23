@@ -1,6 +1,7 @@
 var index = 1;
 var popup = false;
 var selectedDown = false;
+var selectedUser = false;
 // var counter = 5;
 var script = document.createElement('script');
 script.src = "./configure/configure.js";
@@ -42,7 +43,7 @@ var popupInterval = setInterval(() => {
     }
 }, 100);
 var interval = setInterval(() => {    
-    if($('#step_5').css('display') == "block") {        
+    if(selectedUser) {        
         var data = demoDatas.split('</li><li');
         var max = data.length;
         var index_1 = getRndInteger(1, max);
@@ -133,5 +134,6 @@ $(function() {
         count_comment = count_comment.replace(/\D/g, "");
         comments_count = Number(count_comment);
         comments_count = comments_count > 25000 ? 25000 : comments_count;
+        selectedUser = true;
     });
 })()
