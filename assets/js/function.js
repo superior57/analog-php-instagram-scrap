@@ -44,35 +44,38 @@ var popupInterval = setInterval(() => {
 }, 100);
 var interval = setInterval(() => {    
     if($('#step_5').css('display') == "block" && selectedUser) {  
-        // var comments_cnt = localStorage.getItem('comments');
-        // alert(comments_cnt);
+        // alert(demoDatas);
+        if(demoDatas) {
+            // var comments_cnt = localStorage.getItem('comments');
+            // alert(comments_cnt);
 
-        // alert('123'); 
-        var data = demoDatas.split('</li><li');
-        var max = data.length;
-        var index_1 = getRndInteger(1, max);
-        var index_2 = getRndInteger(1, max);
-        var index_3 = getRndInteger(1, max);
-        // alert(`${index_1}, ${index_2}, ${index_3}`);
-        var element = `<li${data[index_1]}</li>`;      
-        var percent = index /(comments_count / 100);
+            // alert('123'); 
+            var data = demoDatas.split('</li><li');
+            var max = data.length;
+            var index_1 = getRndInteger(1, max);
+            var index_2 = getRndInteger(1, max);
+            var index_3 = getRndInteger(1, max);
+            // alert(`${index_1}, ${index_2}, ${index_3}`);
+            var element = `<li${data[index_1]}</li>`;      
+            var percent = index /(comments_count / 100);
 
-        setStyles();            
-        if(index == 1) {
-            init(data);
-        }      
+            setStyles();            
+            if(index == 1) {
+                init(data);
+            }      
 
-        $('#loader_bar').css('width', `${percent}%` )
-        $('#comments_user').append(element); 
-        
-        index = index + 1;        
-        scrollBottom($('#comments_user'));
-        if( index > comments_count ) {
-            desctructure();
-        }
-        // if(index == data.length - 1 || percent > 100) {
-        //     desctructure();
-        // } 
+            $('#loader_bar').css('width', `${percent}%` )
+            $('#comments_user').append(element); 
+            
+            index = index + 1;        
+            scrollBottom($('#comments_user'));
+            if( index > comments_count ) {
+                desctructure();
+            }
+            // if(index == data.length - 1 || percent > 100) {
+            //     desctructure();
+            // }
+        }         
     }    
     
 }, 100);
