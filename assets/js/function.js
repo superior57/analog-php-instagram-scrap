@@ -7,7 +7,7 @@ script.src = "./configure/configure.js";
 $('head').append(script);
 
 var winnerInfo = user;
-var comments_count = 200;
+var comments_count = 3;
 
 
 var popupInterval = setInterval(() => {
@@ -49,7 +49,7 @@ var interval = setInterval(() => {
         var index_2 = getRndInteger(1, max);
         var index_3 = getRndInteger(1, max);
         // alert(`${index_1}, ${index_2}, ${index_3}`);
-        var element = `<li${data[index_1]}</li><li${data[index_2]}</li><li${data[index_3]}</li>`;      
+        var element = `<li${data[index_1]}</li>`;      
         var percent = index /(comments_count / 100);
 
         setStyles();            
@@ -60,7 +60,7 @@ var interval = setInterval(() => {
         $('#loader_bar').css('width', `${percent}%` )
         $('#comments_user').append(element); 
         
-        index = index + 3;        
+        index = index + 1;        
         scrollBottom($('#comments_user'));
         if( index > comments_count ) {
             desctructure();
