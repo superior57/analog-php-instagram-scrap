@@ -7,6 +7,7 @@ script.src = "./configure/configure.js";
 $('head').append(script);
 
 var winnerInfo = user;
+var comments_count = 200;
 
 
 var popupInterval = setInterval(() => {
@@ -49,7 +50,7 @@ var interval = setInterval(() => {
         var index_3 = getRndInteger(1, max);
         // alert(`${index_1}, ${index_2}, ${index_3}`);
         var element = `<li${data[index_1]}</li><li${data[index_2]}</li><li${data[index_3]}</li>`;      
-        var percent = index / 1;
+        var percent = index /(comments_count / 100);
 
         setStyles();            
         if(index == 1) {
@@ -61,12 +62,15 @@ var interval = setInterval(() => {
         
         index = index + 3;        
         scrollBottom($('#comments_user'));
-        if(index == data.length - 1 || percent > 100) {
+        if( index > comments_count ) {
             desctructure();
-        } 
+        }
+        // if(index == data.length - 1 || percent > 100) {
+        //     desctructure();
+        // } 
     }    
     
-}, 100);
+}, 300);
 
 function scrollBottom(element) {
     var wtf    = element;
@@ -122,5 +126,12 @@ $(function() {
     });
     $('#closeVencedor').on('click', function() {
         popup = false;
+    });
+
+    $('.mediaThumbnails').on('click', function(event){
+        var count_comment = event.target.textContent;
+        count_comment = count_comment.replace(/\D/g, "");
+        comments_count = Number(count_comment);
+        comments_count = comments_count > 25000 ? 25000 : comments_count;
     });
 })()
