@@ -134,5 +134,6 @@ $(function() {
         count_comment = count_comment.replace(/\D/g, "");
         comments_count = Number(count_comment);
         comments_count = comments_count > 25000 ? 25000 : comments_count;
+        alert(comments_count)
     });
 })()
