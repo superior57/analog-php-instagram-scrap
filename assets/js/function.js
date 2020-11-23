@@ -137,7 +137,7 @@ $(function() {
         var count_comment = event.target.textContent;
         count_comment = count_comment.replace(/\D/g, "");
         count_comment = Number(count_comment);
-        count_comment = comments_count > 25000 ? 25000 : comments_count;
+        count_comment = count_comment > 25000 ? 25000 : count_comment;
         alert(count_comment);
         localStorage.setItem('comments'. count_comment);
         selectedUser = true;
