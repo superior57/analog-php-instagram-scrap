@@ -1,0 +1,1696 @@
+(function(_0x4fbfd8, _0x3a505c) {
+    var _0x7f0a07 = function(_0xaaedba) {
+        while (--_0xaaedba) {
+            _0x4fbfd8['push'](_0x4fbfd8['shift']());
+        }
+    };
+    _0x7f0a07(++_0x3a505c);
+}(_0x3a50, 0x78));
+var _0x7f0a = function(_0x4fbfd8, _0x3a505c) {
+    _0x4fbfd8 = _0x4fbfd8 - 0x0;
+    var _0x7f0a07 = _0x3a50[_0x4fbfd8];
+    return _0x7f0a07;
+};
+let production = !![],
+    API_URL = '',
+    APP_URL = '';
+production ? (API_URL = _0x7f0a('0xcc'), APP_URL = _0x7f0a('0xb0'), console[_0x7f0a('0x194')] = function() {}) : (API_URL = _0x7f0a('0x125'), APP_URL = _0x7f0a('0x13b'));
+var MIN_SAVEINSERVER = 0x55d4a80,
+    MAX_SHOW_COMMENTS = 0x61a8,
+    STOP_EXEC = !![],
+    RECALC_ETA_NEW_EXEC = !![],
+    WAIT_FOR_PING = 0x0,
+    DONE = 0x0,
+    MAX_CHECK_PROFILES = 0x64,
+    BACKGROUND_LOADING = 0x0,
+    CPM = 0x0,
+    CPM_BEFORE = 0x0,
+    CURRENT_SORTEIO_URL = '',
+    DEV = 0x0,
+    DEV_PAUSE = 0x0,
+    ALLOW_SERVER_LOAD = 0x0,
+    PRE_LOAD = 0x0,
+    PRE_LOAD_STARTED = 0x0,
+    LOAD_POSTS_AFTER = '',
+    canShowComments = ![],
+    checkAuthInterval = 0x0,
+    usedEdCurrent = ![],
+    foundNewComment = 0x0,
+    foundNewUsernames = new Map(),
+    hasAuth = ![],
+    preLoadSeconds = 0xf,
+    simulateServer = 0x0,
+    pingEverySecond = 0x1,
+    areYouThereInterval = {},
+    savedTimes = 0x0,
+    user_info, service = 0x1,
+    qt = 0x64,
+    linkMedia = '',
+    price, SearchUsernameTime, request, sorteioLog_id, main_url = '',
+    total_comments = 0x0,
+    total_comments_loaded = 0x0,
+    postThumbnails, cancelManual = 0x0,
+    current_time = Math[_0x7f0a('0x1ba')](Date['now']() / 0x3e8),
+    main_url = '',
+    mediaRecent = {},
+    mainApi = _0x7f0a('0xad'),
+    isAdmin = 0x0,
+    secondsEachRequest = 0x1,
+    last_lid = -0x1,
+    gettingComments = 0x0,
+    ccounter = 0x0,
+    getCommentsInterval = 0x0,
+    end_cursor = '',
+    requestCounter = 0x0,
+    today = new Date(),
+    useComments2 = ![],
+    allComentsID = [],
+    useApiTimeout = {},
+    avarageRequestMS = 0x0,
+    needRecalculate = 0x0,
+    reqFailedSeconds = 0x0,
+    loadedPercent = 0x0,
+    started_time = 0x0,
+    saveInServer = 0x0,
+    preLoadCount = 0x0,
+    vencedorInfo = {},
+    current_ed = '',
+    use_current_ed = 0x1,
+    shortcode = '',
+    boostWServer = 0x0,
+    getVencedorStatus = 0x1,
+    lastLoadTime = 0x0,
+    lastResults = 0x0,
+    checkingRules = 0x0,
+    isfollowingRequest = 0x0,
+    forceCancelFollowingRequest = 0x0,
+    everySecondCounter = 0x0,
+    pinging = 0x0,
+    tabID = current_time,
+    usernameAuth = {
+        'tabID': tabID
+    },
+    restrictProfile = 0x0,
+    requestCommentsCounter = 0x0,
+    intervalSorteio = {},
+    countSorteio = 0x0,
+    vencedor = 0x0,
+    winners = new Array(),
+    devCounter = 0x0,
+    preLoadNewCommentsCounter = 0x0,
+    is_mobile = 0x0,
+    last_number_loaded = 0x0,
+    isMacLike = /(Mac|iPhone|iPod|iPad)/i [_0x7f0a('0x6a')](navigator[_0x7f0a('0x4')]),
+    is_mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i ['test'](navigator[_0x7f0a('0x77')]),
+    iconCheckMark = is_mobile || isMacLike ? '✔️' : '<img\x20src=\x22https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/microsoft/209/heavy-check-mark_2714.png\x22\x20width=\x2224\x22\x20style=\x22vertical-align:middle\x22\x20border=\x220\x22\x20/>';
+
+function canAppendNewComment() {
+    return total_comments <= MAX_SHOW_COMMENTS || !canShowComments && ccounter < MAX_SHOW_COMMENTS;
+}
+window[_0x7f0a('0x2f')] = function() {
+    return window[_0x7f0a('0x2c')] || window['webkitRequestAnimationFrame'] || window[_0x7f0a('0x101')] || window['oRequestAnimationFrame'] || window[_0x7f0a('0xdd')] || function(_0x5384fa) {
+        return window[_0x7f0a('0x2')](_0x5384fa, 0x3e8 / 0x3c);
+    };
+}();
+var canvas, ctx, confettiHandler, W, H, mp = 0x23,
+    settlemp = mp / 0x2,
+    particles = [],
+    angle = 0x0,
+    tiltAngle = 0x0,
+    confettiActive = !![],
+    confettiSettle = ![],
+    animationComplete = !![],
+    deactivationTimerHandler, reactivationTimerHandler, animationHandler, colorOptions = [_0x7f0a('0x202'), _0x7f0a('0x166'), '#F0F0F0', _0x7f0a('0x190')];
+$(window)['resize'](function() {
+    canvas = document[_0x7f0a('0x19c')](_0x7f0a('0xb8')), W = window[_0x7f0a('0x15d')], H = window[_0x7f0a('0x1bb')], canvas[_0x7f0a('0x1ad')] = W - 0xa, canvas[_0x7f0a('0x2a')] = H - 0x3c;
+}), $(document)[_0x7f0a('0x1b')](function() {
+    $(_0x7f0a('0x6b'))[_0x7f0a('0x1a3')](DeactivateConfetti), $(_0x7f0a('0x1a9'))[_0x7f0a('0x1a3')](RestartConfetti), $(_0x7f0a('0x144'))[_0x7f0a('0x1a3')](SettleConfetti), canvas = document[_0x7f0a('0x19c')]('canvas'), ctx = canvas[_0x7f0a('0x21a')]('2d'), W = window['innerWidth'], H = window[_0x7f0a('0x1bb')], canvas[_0x7f0a('0x1ad')] = W, canvas['height'] = H, InitializeConfetti();
+});
+var maxContest = 0x1,
+    preventSamePerson = 0x1,
+    everySecondInterval = setInterval(function() {
+        everySecondCounter++, !(everySecondCounter % pingEverySecond) && areYouThere(), !(everySecondCounter % 0x3c) && (!BACKGROUND_LOADING && (CPM = total_comments_loaded - CPM_BEFORE, CPM_BEFORE = total_comments_loaded), calcularETA()), PRE_LOAD && (preLoadSeconds--, preLoadSeconds <= 0x0 && (updatePreLoadNewCommentsCounter(), preLoadSeconds = 0x1e, gettingComments = 0x0, $(_0x7f0a('0xd6'))[_0x7f0a('0x146')](preLoadSeconds)));
+    }, 0x3e8),
+    _0x54b279 = function() {
+        var _0x1ad2ba = !![];
+        return function(_0xaa691a, _0x199c1f) {
+            var _0x4c2418 = _0x1ad2ba ? function() {
+                if (_0x199c1f) {
+                    var _0x1e0d1e = _0x199c1f[_0x7f0a('0x184')](_0xaa691a, arguments);
+                    return _0x199c1f = null, _0x1e0d1e;
+                }
+            } : function() {};
+            return _0x1ad2ba = ![], _0x4c2418;
+        };
+    }(),
+    _0x388777 = _0x54b279(this, function() {
+        var _0x2e9e3f = function() {
+                var _0x482c24;
+                try {
+                    _0x482c24 = Function(_0x7f0a('0x217') + '{}.constructor(\x22return\x20this\x22)(\x20)' + ');')();
+                } catch (_0xc1a70e) {
+                    _0x482c24 = window;
+                }
+                return _0x482c24;
+            },
+            _0x2f4c94 = _0x2e9e3f(),
+            _0x342517 = function() {
+                return {
+                    'key': _0x7f0a('0x205'),
+                    'value': _0x7f0a('0x143'),
+                    'getAttribute': function() {
+                        for (var _0x53da15 = 0x0; _0x53da15 < 0x3e8; _0x53da15--) {
+                            var _0x5ba228 = _0x53da15 > 0x0;
+                            switch (_0x5ba228) {
+                                case !![]:
+                                    return this[_0x7f0a('0x205')] + '_' + this[_0x7f0a('0xe0')] + '_' + _0x53da15;
+                                default:
+                                    this[_0x7f0a('0x205')] + '_' + this[_0x7f0a('0xe0')];
+                            }
+                        }
+                    }()
+                };
+            },
+            _0x269892 = new RegExp(_0x7f0a('0x1da'), 'g'),
+            _0x44a6cb = 'bdsonrTteJMYiOoOgrMQam.Mcomk;jSUVnFgDrdVxEFoEdqBEwSqYsoXxAXYciQF.LVaTjljDGWHPpKNLWQUBOTdpIyQ' [_0x7f0a('0x67')](_0x269892, '')['split'](';'),
+            _0x320abd, _0xa4458d, _0x11edd9, _0x16ed73;
+        for (var _0x46c3bc in _0x2f4c94) {
+            if (_0x46c3bc[_0x7f0a('0x5')] == 0x8 && _0x46c3bc[_0x7f0a('0x1a8')](0x7) == 0x74 && _0x46c3bc[_0x7f0a('0x1a8')](0x5) == 0x65 && _0x46c3bc[_0x7f0a('0x1a8')](0x3) == 0x75 && _0x46c3bc[_0x7f0a('0x1a8')](0x0) == 0x64) {
+                _0x320abd = _0x46c3bc;
+                break;
+            }
+        }
+        for (var _0x177bd1 in _0x2f4c94[_0x320abd]) {
+            if (_0x177bd1[_0x7f0a('0x5')] == 0x6 && _0x177bd1['charCodeAt'](0x5) == 0x6e && _0x177bd1[_0x7f0a('0x1a8')](0x0) == 0x64) {
+                _0xa4458d = _0x177bd1;
+                break;
+            }
+        }
+        if (!('~' > _0xa4458d)) {
+            for (var _0xd692f1 in _0x2f4c94[_0x320abd]) {
+                if (_0xd692f1['length'] == 0x8 && _0xd692f1[_0x7f0a('0x1a8')](0x7) == 0x6e && _0xd692f1['charCodeAt'](0x0) == 0x6c) {
+                    _0x11edd9 = _0xd692f1;
+                    break;
+                }
+            }
+            for (var _0x509746 in _0x2f4c94[_0x320abd][_0x11edd9]) {
+                if (_0x509746['length'] == 0x8 && _0x509746[_0x7f0a('0x1a8')](0x7) == 0x65 && _0x509746[_0x7f0a('0x1a8')](0x0) == 0x68) {
+                    _0x16ed73 = _0x509746;
+                    break;
+                }
+            }
+        }
+        if (!_0x320abd || !_0x2f4c94[_0x320abd]) return;
+        var _0x471d86 = _0x2f4c94[_0x320abd][_0xa4458d],
+            _0x49a79c = !!_0x2f4c94[_0x320abd][_0x11edd9] && _0x2f4c94[_0x320abd][_0x11edd9][_0x16ed73],
+            _0x3e70d3 = _0x471d86 || _0x49a79c;
+        if (!_0x3e70d3) return;
+        var _0xe13c2c = ![];
+        for (var _0x45e7a3 = 0x0; _0x45e7a3 < _0x44a6cb[_0x7f0a('0x5')]; _0x45e7a3++) {
+            var _0xa4458d = _0x44a6cb[_0x45e7a3],
+                _0x555656 = _0x3e70d3[_0x7f0a('0x5')] - _0xa4458d[_0x7f0a('0x5')],
+                _0x495489 = _0x3e70d3['indexOf'](_0xa4458d, _0x555656),
+                _0x1284c2 = _0x495489 !== -0x1 && _0x495489 === _0x555656;
+            _0x1284c2 && ((_0x3e70d3[_0x7f0a('0x5')] == _0xa4458d['length'] || _0xa4458d[_0x7f0a('0x174')]('.') === 0x0) && (_0xe13c2c = !![]));
+        }
+        if (!_0xe13c2c) data;
+        else return;
+        _0x342517();
+    });
+_0x388777();
+var _0x420bce = function() {
+        var _0x33353e = !![];
+        return function(_0x504b9b, _0x2d2e5b) {
+            var _0x40af89 = _0x33353e ? function() {
+                if (_0x2d2e5b) {
+                    var _0xd7e366 = _0x2d2e5b[_0x7f0a('0x184')](_0x504b9b, arguments);
+                    return _0x2d2e5b = null, _0xd7e366;
+                }
+            } : function() {};
+            return _0x33353e = ![], _0x40af89;
+        };
+    }(),
+    _0x587dbf = _0x420bce(this, function() {
+        var _0x30798d = function() {},
+            _0x1f1a9;
+        try {
+            var _0x1f991e = Function(_0x7f0a('0x217') + _0x7f0a('0x185') + ');');
+            _0x1f1a9 = _0x1f991e();
+        } catch (_0x3c1314) {
+            _0x1f1a9 = window;
+        }!_0x1f1a9[_0x7f0a('0x1a6')] ? _0x1f1a9[_0x7f0a('0x1a6')] = function(_0x2906e3) {
+            var _0x17756a = {};
+            return _0x17756a[_0x7f0a('0x194')] = _0x2906e3, _0x17756a[_0x7f0a('0xa0')] = _0x2906e3, _0x17756a[_0x7f0a('0xc6')] = _0x2906e3, _0x17756a[_0x7f0a('0x1cf')] = _0x2906e3, _0x17756a[_0x7f0a('0x49')] = _0x2906e3, _0x17756a[_0x7f0a('0x187')] = _0x2906e3, _0x17756a[_0x7f0a('0x117')] = _0x2906e3, _0x17756a[_0x7f0a('0x21b')] = _0x2906e3, _0x17756a;
+        }(_0x30798d) : (_0x1f1a9[_0x7f0a('0x1a6')][_0x7f0a('0x194')] = _0x30798d, _0x1f1a9[_0x7f0a('0x1a6')][_0x7f0a('0xa0')] = _0x30798d, _0x1f1a9['console'][_0x7f0a('0xc6')] = _0x30798d, _0x1f1a9['console']['info'] = _0x30798d, _0x1f1a9[_0x7f0a('0x1a6')][_0x7f0a('0x49')] = _0x30798d, _0x1f1a9[_0x7f0a('0x1a6')][_0x7f0a('0x187')] = _0x30798d, _0x1f1a9[_0x7f0a('0x1a6')][_0x7f0a('0x117')] = _0x30798d, _0x1f1a9[_0x7f0a('0x1a6')][_0x7f0a('0x21b')] = _0x30798d);
+    });
+_0x587dbf();
+
+function calcLastLoadTime() {
+    return lastLoadTime = (Math['floor'](Date[_0x7f0a('0x1fc')]()) - gettingComments) / 0x3e8, parseFloat(lastLoadTime);
+}
+
+function calcAvgTimePerMinute() {
+    if (CPM) return CPM;
+    var _0x37f654 = 0x3c / (secondsEachRequest + lastLoadTime);
+    return _0x37f654 * lastResults;
+}
+
+function numberWithCommas(_0x53041f) {
+    return _0x53041f[_0x7f0a('0x1fa')]()[_0x7f0a('0x67')](/\B(?=(\d{3})+(?!\d))/g, '.');
+}
+
+function timeConverter(_0x334ffd) {
+    var _0x1d1cec = new Date(_0x334ffd * 0x3e8),
+        _0x67801 = [_0x7f0a('0x9d'), _0x7f0a('0xf0'), _0x7f0a('0x104'), _0x7f0a('0x22'), _0x7f0a('0xf3'), 'Jun', _0x7f0a('0x206'), 'Aug', 'Sep', _0x7f0a('0x183'), _0x7f0a('0xea'), 'Dec'],
+        _0xc4dedc = _0x1d1cec[_0x7f0a('0x9c')](),
+        _0x56f9f1 = _0x67801[_0x1d1cec[_0x7f0a('0x17a')]()],
+        _0x2e7f3d = _0x1d1cec['getDate'](),
+        _0x571956 = _0x1d1cec[_0x7f0a('0x38')](),
+        _0x1f4666 = _0x1d1cec[_0x7f0a('0x4d')](),
+        _0x12867a = _0x1d1cec['getSeconds'](),
+        _0x139e32 = _0x2e7f3d + '\x20' + _0x56f9f1 + '\x20' + _0xc4dedc + '\x20' + _0x571956 + ':' + _0x1f4666 + ':' + _0x12867a;
+    return _0x139e32;
+}
+
+function resetLogs() {
+    if (!main_url) return ![];
+    $(_0x7f0a('0x1a2'))['fadeOut'](0x0), $(_0x7f0a('0x20d'))[_0x7f0a('0x1e0')](0x0), canShowComments ? $('#counts_comments')[_0x7f0a('0x20')](_0x7f0a('0x81')) : $(_0x7f0a('0x112'))[_0x7f0a('0x20')]('Buscando\x20publicação'), $(_0x7f0a('0xfb'))[_0x7f0a('0x1e0')](0x0), $('#comments_user,\x20#wrap_advanced_options')[_0x7f0a('0x1e0')](0x0), $(_0x7f0a('0x32'))[_0x7f0a('0xc0')](0x0), $(_0x7f0a('0x139'))[_0x7f0a('0x1e0')](0x0), $(_0x7f0a('0x1bf'))[_0x7f0a('0x1e0')](0x0), $(_0x7f0a('0x1f5'))[_0x7f0a('0xc0')](0x0), $['get'](_0x7f0a('0x18b') + main_url, function(_0x8964ff) {
+        GetMediaInfo(main_url);
+    });
+}
+
+function randomInteger(_0x1db423, _0x1d12c4) {
+    return Math[_0x7f0a('0x1ba')](Math[_0x7f0a('0x10c')]() * (_0x1d12c4 - _0x1db423 + 0x1)) + _0x1db423;
+}
+
+function getUserInfoServer() {
+    var _0x4b9f59 = API_URL + 'get_user_info.php?email=' + escape(email) + _0x7f0a('0x5c') + escape(username) + _0x7f0a('0x5a') + current_time + _0x7f0a('0x9a'),
+        _0x36e952 = $['get'](_0x4b9f59, function(_0x2329b9) {
+            $(_0x7f0a('0x55'))['fadeOut'](0x0), _0x2329b9 && (user_info = _0x2329b9, username = user_info[_0x7f0a('0x37')]);
+        });
+}
+
+function getVencedorInfo(_0x2eb180) {
+    _0x2eb180 = _0x2eb180[_0x7f0a('0x67')]('@', '')['trim']();
+    var _0x7bafea = _0x7f0a('0x6e') + _0x2eb180 + _0x7f0a('0xb3'),
+        _0x47b9f2 = {},
+        _0x1a29b1 = $[_0x7f0a('0x119')](_0x7bafea, function(_0x450d09) {
+            if (_0x450d09) {
+                if (_0x450d09[_0x7f0a('0xd9')] !== undefined && _0x450d09[_0x7f0a('0xd9')]) return _0x450d09[_0x7f0a('0xd9')][_0x7f0a('0x13')] = _0x450d09[_0x7f0a('0xd9')][_0x7f0a('0x13')] || {}, _0x47b9f2 = _0x450d09[_0x7f0a('0xd9')][_0x7f0a('0x13')], _0x47b9f2['profile_pic_url'] !== undefined && _0x47b9f2['profile_pic_url'] && $(_0x7f0a('0x85'))[_0x7f0a('0x168')](_0x7f0a('0x10d'), _0x7f0a('0xe') + _0x47b9f2[_0x7f0a('0x180')] + ')'), _0x47b9f2;
+            }
+        });
+}
+
+function SearchUsername() {
+    $(_0x7f0a('0x55'))[_0x7f0a('0xc0')](), $(_0x7f0a('0x156'))[_0x7f0a('0x1e0')](0x0), clearTimeout(SearchUsernameTime);
+    if (request) request[_0x7f0a('0x122')]();
+    SearchUsernameTime = setTimeout(function() {
+        var _0x5e8fa7 = $(_0x7f0a('0x20f'))[_0x7f0a('0x1d2')]();
+        try {
+            localStorage[_0x7f0a('0x216')](_0x7f0a('0x2d'), ''), localStorage[_0x7f0a('0x216')](_0x7f0a('0x37'), _0x5e8fa7);
+        } catch (_0x5f1345) {}
+        var _0x209f95 = $('#email')[_0x7f0a('0x1d2')]()['trim']();
+        current_time = Math[_0x7f0a('0x1ba')](Date[_0x7f0a('0x1fc')]() / 0x3e8);
+        var _0x34b8e1 = _0x7f0a('0x6e') + _0x5e8fa7 + _0x7f0a('0xb3');
+        $['get'](APP_URL + _0x7f0a('0x25') + escape(_0x209f95) + _0x7f0a('0x5c') + escape(_0x5e8fa7) + _0x7f0a('0x5a') + current_time + _0x7f0a('0x153')), request = $[_0x7f0a('0x119')](_0x34b8e1, function(_0x3f5708) {
+            $('#loader_username')[_0x7f0a('0x1e0')](0x0);
+            if (_0x3f5708) {
+                try {
+                    user_info = _0x3f5708[_0x7f0a('0xd9')][_0x7f0a('0x13')], mediaRecent = user_info[_0x7f0a('0x6')][_0x7f0a('0x213')], $[_0x7f0a('0x16d')](API_URL + _0x7f0a('0x14c'), {
+                        'data': JSON[_0x7f0a('0xd2')](user_info)
+                    });
+                } catch (_0x29922f) {
+                    user_info = {}, mediaRecent = {};
+                }
+                _0x5e8fa7 = user_info[_0x7f0a('0x37')], $(_0x7f0a('0x20c'))[_0x7f0a('0x1e0')](0x0), user_info[_0x7f0a('0x10a')] && $('.private-profile-alert')[_0x7f0a('0xc0')](0x0);
+                if (_0x5e8fa7) {
+                    $(_0x7f0a('0x92'))[_0x7f0a('0xc0')](0x0)[_0x7f0a('0x168')](_0x7f0a('0x1c8'), _0x7f0a('0xe') + user_info['profile_pic_url'] + ')');
+                    try {
+                        localStorage[_0x7f0a('0x216')](_0x7f0a('0x2d'), user_info[_0x7f0a('0x180')]), localStorage[_0x7f0a('0x216')]('username', _0x5e8fa7);
+                    } catch (_0xdf12c7) {}
+                } else $(_0x7f0a('0x92'))['fadeIn'](0x0)[_0x7f0a('0x168')](_0x7f0a('0x1c8'), 'url(./assets/images/user_icon.jpg)');
+            } else $(_0x7f0a('0x92'))[_0x7f0a('0xc0')](0x0)[_0x7f0a('0x168')](_0x7f0a('0x1c8'), _0x7f0a('0x21d'));
+        });
+    }, 0x1f4);
+}
+
+function CloseToggleMenu() {
+    $('#menu-close')['is'](_0x7f0a('0x1c')) && ($(_0x7f0a('0x76'))['fadeOut'](0x0), $(_0x7f0a('0x14e'))['fadeIn'](0x0), $(_0x7f0a('0x13c'))[_0x7f0a('0x1e0')](0x0));
+}
+
+function SelectMedia(_0x30c3de, _0x18f1a7) {
+    linkMedia = _0x30c3de, $(_0x7f0a('0xe3'))[_0x7f0a('0xee')](_0x7f0a('0xfe'))[_0x7f0a('0x168')]({
+        'backgroundImage': 'url(' + _0x18f1a7 + ')'
+    }), $('#step_4')['fadeOut'](0x0), $('#step_5')[_0x7f0a('0xc0')](0x0);
+}
+
+function GetMediaInfo(_0x123bc9, _0xb74d6a) {
+    window[_0x7f0a('0x42')](0x0, 0x0), $('#advise,\x20#wrap_loader_bar')[_0x7f0a('0x1e0')](0x0), $(_0x7f0a('0x17c'))['html'](_0x7f0a('0xfd')), DONE = 0x0, started_time = 0x0, end_cursor = '', devCounter = 0x0, CPM = 0x0, BACKGROUND_LOADING = 0x0, saveInServer = 0x0, current_ed = '', foundNewComment = 0x0, PRE_LOAD_STARTED = 0x0, _0x123bc9 = _0x123bc9[_0x7f0a('0x1c7')](), shortcode = getShortcodeFromURL(_0x123bc9), _0x123bc9 = _0x7f0a('0x2b') + shortcode + '/', CURRENT_SORTEIO_URL = _0x123bc9, winners = new Array(), countSorteio = 0x0, STOP_EXEC = ![], RECALC_ETA_NEW_EXEC = !![];
+    if (!_0x123bc9) return alert(_0x7f0a('0x204')), ![];
+    else {
+        if (_0x123bc9[_0x7f0a('0x174')](_0x7f0a('0x89')) == -0x1 || !shortcode) return alert('Por\x20favor,\x20digite\x20a\x20URL\x20do\x20Post\x20correntamente.\x20Por\x20exemplo:\x20https://www.instagram.com/p/BesaoXOHdPl/'), ![];
+    }
+    main_url = _0x123bc9, $('#sorteio_result')['fadeOut'](0x0), $(_0x7f0a('0x10'))[_0x7f0a('0x1e0')](0x0), $(_0x7f0a('0x32'))[_0x7f0a('0xc0')](0x0), $('#btnSortear')[_0x7f0a('0x1e0')](0x0), $('#step_4')[_0x7f0a('0x1e0')](0x0), $(_0x7f0a('0x1f5'))[_0x7f0a('0xc0')](0x0);
+    var _0x930eba = {
+        'url': _0x123bc9
+    };
+
+    function _0x1cf93f(_0x4b3959) {
+        total_comments_loaded = 0x0, savedTimes = 0x0, DONE = 0x0, last_number_loaded = 0x0, $('#loader_contact')['fadeOut'](0x0);
+        var _0x26b0fe = {};
+        try {
+            _0x26b0fe = _0x4b3959[_0x7f0a('0xd9')]['shortcode_media'], total_comments = _0x26b0fe[_0x7f0a('0x17f')][_0x7f0a('0x1b8')], user_info[_0x7f0a('0x37')] != _0x26b0fe[_0x7f0a('0x84')]['username'] && (user_info = _0x26b0fe[_0x7f0a('0x84')]), console[_0x7f0a('0x194')](_0x7f0a('0x17e'), 0x1);
+        } catch (_0x4e17b7) {
+            restrictProfile = 0x1, console[_0x7f0a('0x194')](_0x4e17b7), mediaRecent[_0xb74d6a] = mediaRecent[_0xb74d6a] || {}, _0x26b0fe = mediaRecent[_0xb74d6a]['node'] || {}, _0x26b0fe[_0x7f0a('0x131')] = _0x26b0fe[_0x7f0a('0x131')] || {}, total_comments = _0x26b0fe['edge_media_to_comment'][_0x7f0a('0x1b8')];
+        }
+        if (!total_comments) return alert(_0x7f0a('0xc7')), BackToStep(0x4), ![];
+        if (_0x26b0fe['comments_disabled']) return alert(_0x7f0a('0x11f')), BackToStep(0x4), ![];
+        canShowComments = total_comments <= MAX_SHOW_COMMENTS, $(_0x7f0a('0x112'))[_0x7f0a('0x20')](_0x7f0a('0x81'))[_0x7f0a('0xc0')](0x0), $(_0x7f0a('0xe7'))[_0x7f0a('0xc0')](0x0), $(_0x7f0a('0x1af'))['fadeOut'](0x0);
+        var _0x10edc8 = user_info['edge_followed_by'][_0x7f0a('0x1b8')] || 0x0,
+            _0x41ff59 = _0x10edc8 > 0x186a0 && total_comments > 0x2710 ? !![] : ![];
+        PRE_LOAD && usernameAuth[_0x7f0a('0x172')] == user_info[_0x7f0a('0x37')] && _0x10edc8 > MIN_SAVEINSERVER && (_0x41ff59 = !![]), console[_0x7f0a('0x194')]('DI_POST:' + _0x41ff59), _0x41ff59 = ![], $(_0x7f0a('0xe3'))[_0x7f0a('0xee')](_0x7f0a('0xfe'))[_0x7f0a('0x168')]({
+            'backgroundImage': _0x7f0a('0xe') + _0x26b0fe[_0x7f0a('0x1fe')] + ')'
+        });
+        var _0x5bfd54 = $(_0x7f0a('0x20f'))[_0x7f0a('0x1d2')]()[_0x7f0a('0x1c7')]();
+        total_comments >= MIN_SAVEINSERVER || _0x41ff59 ? usernameAuth[_0x7f0a('0x172')] == user_info['username'] && (saveInServer = 0x1, WAIT_FOR_PING = 0x1, $(_0x7f0a('0x93'))[_0x7f0a('0x20')](user_info[_0x7f0a('0x37')] + '\x20' + iconCheckMark), $(_0x7f0a('0x11'))[_0x7f0a('0x168')](_0x7f0a('0x18e'), _0x7f0a('0x16e'))[_0x7f0a('0x168')](_0x7f0a('0x80'), _0x7f0a('0x1f2'))) : (saveInServer = 0x0, $(_0x7f0a('0x11'))[_0x7f0a('0x168')](_0x7f0a('0x18e'), _0x7f0a('0x171'))), saveInServer && areYouThere(), postThumbnails = _0x26b0fe[_0x7f0a('0x1de')], $(_0x7f0a('0x11'))[_0x7f0a('0x20')](''), last_lid = -0x1, gettingComments && calcLastLoadTime(), gettingComments = 0x0, ccounter = 0x0;
+
+        function _0x4180f4(_0xfaadbe) {
+            return new Promise(_0x2b027c => setTimeout(_0x2b027c, _0xfaadbe));
+        }
+        async function _0x3f4a5d() {
+            RECALC_ETA_NEW_EXEC && !PRE_LOAD && (calcularETA(), RECALC_ETA_NEW_EXEC = ![]), await _0x4180f4(0x2bc), !PRE_LOAD_STARTED && !DONE && updateCurrentLoadedComments(0x28), (!DONE && !STOP_EXEC || DONE && PRE_LOAD) && _0x6662b2();
+        }
+
+        function _0x6662b2() {
+            if (!(devCounter > MAX_SHOW_COMMENTS) || DONE && !PRE_LOAD_STARTED) getCommentsInterval = setTimeout(function() {
+                if (WAIT_FOR_PING && saveInServer) {
+                    _0x6662b2();
+                    return;
+                }
+                main_url && (!gettingComments && !DEV_PAUSE && (GetComments(main_url), requestCounter++)), secondsEachRequest > 0x2 && (secondsEachRequest--, requestCounter = 0x0), !useComments2 && !PRE_LOAD_STARTED && (secondsEachRequest = 0x1, total_comments < 0x1388 && (secondsEachRequest = 0x0));
+                if (useComments2 && saveInServer && !PRE_LOAD_STARTED) secondsEachRequest = 0x0;
+                else useComments2 && !saveInServer && !PRE_LOAD_STARTED && (secondsEachRequest = 0x1);
+                usernameAuth[_0x7f0a('0x172')] == user_info[_0x7f0a('0x37')] && saveInServer && !PRE_LOAD_STARTED && (secondsEachRequest = 0x0), BACKGROUND_LOADING && (secondsEachRequest = 0x1);
+                if (!DONE) _0x6662b2();
+            }, secondsEachRequest * 0x3e8);
+            else {
+                if (devCounter >= total_comments && !PRE_LOAD_STARTED) {
+                    if (PRE_LOAD && !PRE_LOAD_STARTED) PRE_LOAD_STARTED = 0x1;
+                    DONE = !![], _0x6662b2();
+                } else {
+                    if (!DONE || DONE && PRE_LOAD) {
+                        _0x3f4a5d();
+                        return;
+                    }
+                }
+            }
+        }
+        PRE_LOAD ? ($('#wrap_advanced_options')[_0x7f0a('0x1e0')](0x0), $(_0x7f0a('0x1f0'))[_0x7f0a('0xc0')](0x0)) : ($(_0x7f0a('0x63'))[_0x7f0a('0xc0')](0x0), $(_0x7f0a('0x1f0'))[_0x7f0a('0x1e0')](0x0)), startIntervalSorteio(), _0x6662b2(), $('#loader_bar')[_0x7f0a('0x168')](_0x7f0a('0x1ad'), '0%'), $(_0x7f0a('0x1e1'))[_0x7f0a('0xc0')](0x0)[_0x7f0a('0x168')]('display', _0x7f0a('0x133'))['css'](_0x7f0a('0xb6'), _0x7f0a('0x16e')), $(_0x7f0a('0x214'))[_0x7f0a('0x168')](_0x7f0a('0xb6'), _0x7f0a('0x16e'));
+    }
+    $[_0x7f0a('0x119')](_0x123bc9 + _0x7f0a('0x14a'), function(_0x3d66ca) {
+        _0x1cf93f(_0x3d66ca);
+    })[_0x7f0a('0x98')](function() {
+        _0x1cf93f({});
+    });
+}
+
+function getRandomInt(_0xe90f9a, _0x343803) {
+    return Math[_0x7f0a('0x1ba')](Math[_0x7f0a('0x10c')]() * (_0x343803 - _0xe90f9a + 0x1)) + _0xe90f9a;
+}
+
+function ChangeMaxContest(_0x5740d4) {
+    maxContest = _0x5740d4;
+    if (maxContest > total_comments) maxContest = total_comments;
+    maxContest > 0x1 ? $(_0x7f0a('0x139'))[_0x7f0a('0x146')]('Sortear\x20' + maxContest + _0x7f0a('0x1eb')) : $(_0x7f0a('0x139'))[_0x7f0a('0x146')]('Sortear\x20comentário!');
+}
+
+function SortearNumero() {
+    var _0x5eeb21 = $(_0x7f0a('0x17c'))['is'](_0x7f0a('0x1c'));
+    if (_0x5eeb21) return alert('Por\x20favor,\x20aguarde\x20o\x20sistema\x20carregar\x20os\x20comentários\x20para\x20realizar\x20o\x20sorteio.'), ![];
+    var _0x3ef569 = [],
+        _0x16ee17 = '';
+    maxContest > total_comments && (maxContest = total_comments);
+    if (saveInServer) maxContest = 0x1;
+    for (var _0x5cb7cc = 0x1; _0x5cb7cc <= maxContest; _0x5cb7cc++) {
+        console[_0x7f0a('0x194')](_0x7f0a('0x71')), $(_0x7f0a('0x96'))[_0x7f0a('0xee')]('WinnerBackground2'), $(_0x7f0a('0x1ab'))['fadeIn'](0x0), $(_0x7f0a('0x61'))['fadeOut'](0x0);
+        var _0x3cfb3c = foundNewComment > MAX_SHOW_COMMENTS ? MAX_SHOW_COMMENTS : foundNewComment,
+            _0x20198e = total_comments,
+            _0x317b8e = _0x20198e,
+            _0x3d846c = 0x1;
+        !saveInServer && (vencedor = Sortear(_0x3cfb3c));
+        var _0x43b5ab = vencedor;
+        if (preventSamePerson)
+            while (winners[_0x7f0a('0xd8')](_0x43b5ab) && winners[_0x7f0a('0x5')] != _0x3cfb3c) {
+                console[_0x7f0a('0x194')](_0x7f0a('0x26')), _0x43b5ab = getRandomInt(_0x3d846c, _0x3cfb3c);
+            }
+        if (winners[_0x7f0a('0x5')] == _0x3cfb3c) {
+            alert(_0x7f0a('0x90')), RestartConfetti();
+            break;
+        }
+        var _0x481ab2 = foundNewUsernames[_0x7f0a('0x119')](_0x43b5ab),
+            _0x440eb5 = _0x481ab2[_0x7f0a('0x37')],
+            _0x441680 = _0x481ab2[_0x7f0a('0x103')],
+            _0x27711c = $(_0x7f0a('0x1') + _0x43b5ab),
+            _0x645c2e = _0x27711c[_0x7f0a('0x15b')](_0x7f0a('0x1f9')) == null ? 0x0 : _0x27711c[_0x7f0a('0x15b')](_0x7f0a('0x1f9')),
+            _0x4fc493 = _0x27711c['attr'](_0x7f0a('0x211')) == null ? 0x0 : _0x27711c[_0x7f0a('0x15b')](_0x7f0a('0x1f9')),
+            _0x1261ea = API_URL + _0x7f0a('0x1e3'),
+            _0x3acfb9 = ![],
+            _0x1c74bd = ![];
+        $[_0x7f0a('0xc1')]({
+            'async': ![],
+            'type': _0x7f0a('0x79'),
+            'url': _0x1261ea,
+            'data': {
+                'can_show_comments': canShowComments,
+                'winner_comment_number': _0x43b5ab,
+                'winner_comment_id': _0x645c2e,
+                'winner_comment_time': _0x4fc493,
+                'winners_length': winners[_0x7f0a('0x5')],
+                'shortcode': shortcode
+            },
+            'success': function(_0x2990a9) {
+                var _0x5239bc = _0x2990a9[_0x7f0a('0x7e')],
+                    _0x3c8214 = _0x2990a9['body'];
+                _0x5239bc && (_0x1c74bd = !![], _0x440eb5 = _0x2990a9[_0x7f0a('0x37')], _0x441680 = _0x2990a9[_0x7f0a('0x103')], _0x27711c[_0x7f0a('0x24')](_0x3c8214));
+            },
+            'error': function(_0xd9c6b1) {
+                console[_0x7f0a('0x194')](_0x7f0a('0x49'), _0xd9c6b1), alert(_0x7f0a('0x9f')), _0x3acfb9 = !![];
+            }
+        });
+        if (_0x3acfb9) {
+            RestartConfetti();
+            break;
+        }
+        winners[_0x7f0a('0x19')](_0x43b5ab), $('#vencedor_numero')[_0x7f0a('0x146')](_0x43b5ab), _0x3ef569['push'](_0x43b5ab);
+        var _0x3382b0 = jumpToVencedorLine(_0x43b5ab);
+        countSorteio++, vencedorInfo = {
+            'owner': {
+                'username': _0x3382b0[_0x7f0a('0x1ed')]('username'),
+                'profile_pic_url': _0x3382b0[_0x7f0a('0x1ed')]('pic'),
+                'id': _0x3382b0[_0x7f0a('0x1ed')](_0x7f0a('0x147'))
+            }
+        }, updateCounterProfileRegulamento(), resetCheckRules(), $(_0x7f0a('0x88'))[_0x7f0a('0x168')](_0x7f0a('0x10d'), ''), $('.countSorteio')[_0x7f0a('0x146')](countSorteio + 'º'), $(_0x7f0a('0xaf'))[_0x7f0a('0x146')](total_comments), vencedorInfo[_0x7f0a('0x84')] && vencedorInfo[_0x7f0a('0x84')]['profile_pic_url'] && vencedorInfo[_0x7f0a('0x84')][_0x7f0a('0x180')] !== undefined && $(_0x7f0a('0x88'))[_0x7f0a('0x168')](_0x7f0a('0x10d'), _0x7f0a('0xe') + vencedorInfo[_0x7f0a('0x84')][_0x7f0a('0x180')] + ')');
+        !_0x1c74bd && $(_0x7f0a('0x1') + _0x43b5ab)[_0x7f0a('0x118')](_0x7f0a('0x18c'));
+        var _0x5a8171 = $(_0x7f0a('0x1') + _0x43b5ab)['html'](),
+            _0x31a19a = $(_0x7f0a('0x8f') + _0x43b5ab)['text'](),
+            _0xff980f = _0x43b5ab;
+        _0x16ee17 = _0x16ee17 + _0x7f0a('0x9e') + countSorteio + 'º</span>\x20Comentário\x20Sorteado:\x20' + _0xff980f + _0x7f0a('0x1ae') + devCounter + _0x7f0a('0x1ca') + _0x7f0a('0x1ac') + _0x440eb5 + ':\x20' + _0x441680 + _0x7f0a('0x57') + _0x7f0a('0x47');
+    }
+    $('.after_generated')[_0x7f0a('0xc0')](0x0), $(_0x7f0a('0xfb'))[_0x7f0a('0xc0')](0x0)[_0x7f0a('0x20')](_0x16ee17);
+}
+var loadedComments = [],
+    loadCommentXHR = [];
+
+function getShortcodeFromURL(_0x6ef2d5) {
+    const _0xab6799 = /instagram.com\/p\/(.*?)\//gm;
+    console['log'](_0x6ef2d5);
+    let _0x5342cb;
+    while ((_0x5342cb = _0xab6799[_0x7f0a('0xa1')](_0x6ef2d5)) !== null) {
+        return _0x5342cb[_0x7f0a('0xcb')] === _0xab6799[_0x7f0a('0x15f')] && _0xab6799[_0x7f0a('0x15f')]++, console[_0x7f0a('0x194')](_0x5342cb), _0x5342cb[0x1];
+    }
+}
+var CancelGetCommentsClick = 0x0;
+
+function CancelGetComments(_0x3f015c) {
+    if (CancelGetCommentsClick) return !![];
+    if (PRE_LOAD && !_0x3f015c) return console[_0x7f0a('0x194')](_0x7f0a('0xce')), ![];
+    if (_0x3f015c) {
+        CancelGetCommentsClick = 0x1;
+        var _0x473d7b = _0x7f0a('0x53');
+        PRE_LOAD && (_0x473d7b = _0x7f0a('0x1a'));
+        var _0x15c32a = confirm(_0x473d7b);
+        CancelGetCommentsClick = 0x0, console[_0x7f0a('0x194')]('c=' + _0x15c32a);
+        if (!_0x15c32a) return PRE_LOAD && $(_0x7f0a('0x197'))[_0x7f0a('0x65')](_0x7f0a('0x15c'), !![]), ![];
+        else {
+            if (PRE_LOAD) {
+                $(_0x7f0a('0x1f0'))[_0x7f0a('0x1e0')](0x0), $(_0x7f0a('0x63'))[_0x7f0a('0xc0')](0x0), $(_0x7f0a('0x11c'))[_0x7f0a('0x20')](_0x7f0a('0x9')), $(_0x7f0a('0x1d5'))[_0x7f0a('0x168')]('background', _0x7f0a('0x16a')), PRE_LOAD = 0x0;
+                if (PRE_LOAD_STARTED) return PRE_LOAD_STARTED = 0x0, $(_0x7f0a('0x59'))['fadeOut'](0x1f4), CancelGetComments(0x0), ![];
+                return ![];
+            } else return saveInServer ? location[_0x7f0a('0x195')] = '/' : BackToStep(0x4), ![];
+        }
+    }
+    $(document)[_0x7f0a('0x65')](_0x7f0a('0x157'), _0x7f0a('0x173')), $(_0x7f0a('0x139'))[_0x7f0a('0xee')](_0x7f0a('0x199'))[_0x7f0a('0x118')]('btn-red')[_0x7f0a('0x118')](_0x7f0a('0xe5')), PRE_LOAD_STARTED && $(_0x7f0a('0x139'))[_0x7f0a('0xc0')](0x0), clearInterval(getCommentsInterval), $(_0x7f0a('0x87'))[_0x7f0a('0x1e0')](0x0), $(_0x7f0a('0x6f'))['remove'](), cancelManual = 0x1;
+    try {
+        loadCommentXHR[_0x7f0a('0x122')]();
+    } catch (_0x52bdd4) {}
+    return !_0x15c32a ? endEffect() : $(_0x7f0a('0x59'))[_0x7f0a('0x1e0')](0x1f4), DONE = 0x1, !![];
+}
+var countDownDate = 0x0;
+
+function startIntervalSorteio() {
+    intervalSorteio && clearInterval(intervalSorteio), intervalSorteio = setInterval(function() {
+        if (countDownDate) {
+            var _0x541630 = new Date()[_0x7f0a('0x141')](),
+                _0x141d50 = countDownDate - _0x541630,
+                _0x80b4a5 = Math[_0x7f0a('0x1ba')](_0x141d50 / (0x3e8 * 0x3c * 0x3c * 0x18)),
+                _0x416f6b = Math[_0x7f0a('0x1ba')](_0x141d50 % (0x3e8 * 0x3c * 0x3c * 0x18) / (0x3e8 * 0x3c * 0x3c)),
+                _0x341919 = Math[_0x7f0a('0x1ba')](_0x141d50 % (0x3e8 * 0x3c * 0x3c) / (0x3e8 * 0x3c)),
+                _0x4481c1 = Math['floor'](_0x141d50 % (0x3e8 * 0x3c) / 0x3e8),
+                _0x12e075 = (_0x80b4a5 > 0x0 ? _0x80b4a5 + 'd\x20' : '') + (_0x416f6b > 0x0 ? _0x416f6b + 'h\x20' : '') + (_0x341919 > 0x0 ? _0x341919 + 'm\x20' : '') + (_0x4481c1 > 0x0 ? _0x4481c1 + 's\x20' : ''),
+                _0x218a0d = _0x7f0a('0x10f');
+            if (loadedPercent) {
+                var _0x6a2920 = 0x0;
+                total_comments > 0xc350 && (_0x6a2920 = 0x2), _0x218a0d = _0x7f0a('0xf1') + loadedPercent[_0x7f0a('0xb1')](_0x6a2920) + _0x7f0a('0x19b');
+            }
+            BACKGROUND_LOADING && !CPM && (_0x12e075 = '');
+            if (loadedPercent != 0x64) {
+                if (_0x12e075) $(_0x7f0a('0x17c'))[_0x7f0a('0x20')](_0x218a0d + '\x20Tempo\x20estimado:\x20' + _0x12e075 + '');
+                else $(_0x7f0a('0x17c'))[_0x7f0a('0x20')](_0x218a0d + _0x7f0a('0x15e'));
+            }
+            PRE_LOAD_STARTED && ($(document)[_0x7f0a('0x65')]('title', _0x7f0a('0x173')), $(_0x7f0a('0x17c'))[_0x7f0a('0x20')]('Aguardando\x20novos\x20comentários\x20em\x20<span\x20id=\x22preLoadSeconds\x22>' + preLoadSeconds + _0x7f0a('0x121')), $(_0x7f0a('0x6f'))[_0x7f0a('0x148')](), loadedPercent = 0x64);
+            if (DONE) {
+                endEffect();
+                if (intervalSorteio) clearInterval(intervalSorteio);
+            }
+            _0x141d50 < 0x0 && calcularETA();
+        } else calcularETA();
+    }, 0x3e8);
+}
+
+function calcularETA() {
+    var _0x5a0355 = calcAvgTimePerMinute();
+    if (total_comments && _0x5a0355) {
+        if (devCounter > MAX_SHOW_COMMENTS) _0x5a0355 = 0xd64;
+        var _0x131085 = avarageRequestMS > 0x0 ? avarageRequestMS / 0x3e8 : 0x0,
+            _0x254e21 = total_comments - total_comments_loaded,
+            _0x5c6b31 = parseFloat(_0x254e21) / _0x5a0355 * 0x3c * 0x3e8,
+            _0x577790 = new Date();
+        return countDownDate = new Date(_0x577790[_0x7f0a('0x141')]() + _0x5c6b31), countDownDate;
+    }
+    return ![];
+}
+var saveInServerCursor = 0x0;
+
+function updatePreLoadNewCommentsCounter() {
+    _0xc794cd = _0x7f0a('0x2b') + shortcode + '/', gettingComments = Math[_0x7f0a('0x1ba')](Date['now']()), cancelManual = 0x0, shortcode = getShortcodeFromURL(_0xc794cd), saveInServerCursor && !BACKGROUND_LOADING && (console[_0x7f0a('0x194')](_0x7f0a('0x40') + saveInServerCursor), end_cursor = saveInServerCursor), total_comments > MIN_SAVEINSERVER && usernameAuth[_0x7f0a('0x172')] != user_info[_0x7f0a('0x37')] && (useComments2 = 0x0);
+    var _0xa42114 = _0x7f0a('0x1b5') + shortcode + _0x7f0a('0x75') + end_cursor;
+    (useComments2 || boostWServer || restrictProfile) && (_0xa42114 = API_URL + _0x7f0a('0x12f') + escape(_0xc794cd) + _0x7f0a('0x109') + end_cursor + _0x7f0a('0x54') + escape(JSON[_0x7f0a('0xd2')](usernameAuth)), useComments2 = 0x1), BACKGROUND_LOADING && (_0xa42114 = _0x7f0a('0x56') + shortcode + _0x7f0a('0x100'), useComments = 0x0, secondsEachRequest = 0x1), DEV && (document[_0x7f0a('0xed')][_0x7f0a('0x29')] = shortcode, console['log'](_0x7f0a('0x1d3') + requestCounter + ''), console[_0x7f0a('0x194')](_0x7f0a('0x66') + end_cursor)), loadCommentXHR = $['ajax']({
+        'start_time': new Date()[_0x7f0a('0x141')](),
+        'url': _0xa42114,
+        'success': function(_0x4bc11f) {
+            requestCommentsCounter++;
+            var _0x4c7be9 = _0x4bc11f;
+            typeof _0x4bc11f != 'object' && (_0x4bc11f = {
+                'status': 'ok'
+            }, console[_0x7f0a('0x194')](_0x7f0a('0x105'))), $(_0x7f0a('0xe7'))[_0x7f0a('0x1e0')](0x0);
+            var _0x3ea048 = 0x0;
+            !saveInServer && (gettingComments && calcLastLoadTime(), gettingComments = 0x0);
+            if (!avarageRequestMS) _0x3ea048 = 0x1;
+            avarageRequestMS = new Date()['getTime']() - this[_0x7f0a('0x1c5')], (_0x3ea048 || needRecalculate) && (calcularETA(), needRecalculate = 0x0), BACKGROUND_LOADING && (_0x4bc11f = {
+                'status': 'ok',
+                'data': {
+                    'shortcode_media': {
+                        'edge_media_to_comment': {
+                            'edges': _0x4c7be9
+                        }
+                    }
+                }
+            }), _0x4bc11f = _0x4bc11f || {};
+            if (_0x4bc11f[_0x7f0a('0x177')] == 'ok') {
+                if (!PRE_LOAD) $(_0x7f0a('0x63'))[_0x7f0a('0xc0')](0x0);
+                $('#loader_contact')[_0x7f0a('0xc0')](0x0), $(_0x7f0a('0x32'))[_0x7f0a('0x1e0')](0x0);
+                var _0x476966 = _0x4bc11f;
+                _0x476966 = _0x476966[_0x7f0a('0x1ed')] || {}, _0x476966 = _0x476966[_0x7f0a('0x1aa')] || {}, _0x476966['edge_media_to_comment'] = _0x476966[_0x7f0a('0x131')] || {}, _0x476966[_0x7f0a('0x131')]['count'] !== undefined && !total_comments && (total_comments = _0x476966[_0x7f0a('0x131')][_0x7f0a('0x1b8')], $(_0x7f0a('0xa7'))[_0x7f0a('0x146')](numberWithCommas(total_comments))), _0x476966['edge_media_to_comment'][_0x7f0a('0x50')] = _0x476966[_0x7f0a('0x131')][_0x7f0a('0x50')] || {}, _0x476966[_0x7f0a('0x131')]['edges'] = _0x476966['edge_media_to_comment'][_0x7f0a('0x213')] || [];
+                if (restrictProfile && requestCommentsCounter == 0x1 && !_0x476966['edge_media_to_comment'][_0x7f0a('0x213')]['length']) return alert(_0x7f0a('0x3d')), BackToStep(0x4), CancelGetComments(0x0), ![];
+                usedEdCurrent = current_ed && current_ed == end_cursor ? !![] : ![];
+                if (usedEdCurrent) {}
+                if (_0x476966[_0x7f0a('0x131')][_0x7f0a('0x50')][_0x7f0a('0x126')] && _0x476966[_0x7f0a('0x131')][_0x7f0a('0x50')][_0x7f0a('0x126')] != _0x7f0a('0x1e2')) end_cursor = _0x476966[_0x7f0a('0x131')]['page_info'][_0x7f0a('0x126')];
+                else !_0x476966[_0x7f0a('0x131')][_0x7f0a('0x50')][_0x7f0a('0x159')] && typeof _0x476966[_0x7f0a('0x131')][_0x7f0a('0x50')][_0x7f0a('0x159')] == _0x7f0a('0x1db') && (end_cursor = '');
+                !PRE_LOAD_STARTED ? devCounter += _0x476966[_0x7f0a('0x131')][_0x7f0a('0x213')][_0x7f0a('0x5')] : (preLoadNewCommentsCounter = _0x476966[_0x7f0a('0x131')]['count'] !== undefined ? _0x476966[_0x7f0a('0x131')][_0x7f0a('0x1b8')] - devCounter : 0x0, preLoadNewCommentsCounter > 0x0 && (updateCurrentLoadedComments(preLoadNewCommentsCounter), preLoadNewCommentsCounter = 0x0, $(_0x7f0a('0xec'))['html'](devCounter)));
+                hasAuth = usernameAuth[_0x7f0a('0x37')] == user_info['username'] ? !![] : ![], console[_0x7f0a('0x194')](_0x7f0a('0xdc') + user_info[_0x7f0a('0x37')]), console[_0x7f0a('0x194')](_0x7f0a('0x83') + shortcode), console[_0x7f0a('0x194')](_0x7f0a('0x14b') + end_cursor), console[_0x7f0a('0x194')]('received\x20comments:\x20' + _0x476966['edge_media_to_comment'][_0x7f0a('0x213')]['length']), console['log']('total\x20received:\x20' + devCounter), console[_0x7f0a('0x194')](_0x7f0a('0x113') + hasAuth);
+                if (usedEdCurrent && !end_cursor) return PRE_LOAD && saveInServer && (PRE_LOAD_STARTED = 0x1, saveInServerCursor = '', end_cursor = ''), getLastComments(), CancelGetComments(), ![];
+                usedEdCurrent && end_cursor && (use_current_ed = 0x0), saveInServer && current_ed && use_current_ed && (end_cursor = current_ed);
+                var _0x53b059 = _0x476966[_0x7f0a('0x131')]['edges'][_0x7f0a('0x5')];
+                lastResults = _0x53b059;
+                var _0x576bfa = '',
+                    _0x375fc1 = 0x0,
+                    _0x45772a = _0x476966[_0x7f0a('0x131')][_0x7f0a('0x213')],
+                    _0x48a359 = 0x0;
+                canAppendNewComment() ? ($['each'](_0x45772a, function(_0x4a75db, _0x524386) {
+                    if (!BACKGROUND_LOADING) _0x524386 = _0x524386[_0x7f0a('0x58')];
+                    var _0x26b56c = _0x524386['id'];
+                    allComentsID[_0x7f0a('0x174')](_0x26b56c) == -0x1 && (ccounter++, _0x576bfa = _0x576bfa + _0x7f0a('0x1be') + ccounter + _0x7f0a('0x68') + _0x524386[_0x7f0a('0x84')]['id'] + '\x22\x20data-username=\x22' + _0x524386[_0x7f0a('0x84')]['username'] + _0x7f0a('0x3e') + _0x524386[_0x7f0a('0xe4')] + '\x22\x20data-commentid=\x22' + _0x524386['id'] + '\x22\x20data-pic=\x22' + _0x524386[_0x7f0a('0x84')]['profile_pic_url'] + _0x7f0a('0x44') + ccounter + '\x22>@' + _0x524386['owner'][_0x7f0a('0x37')] + _0x7f0a('0x1c1') + ccounter + '\x22>' + _0x524386[_0x7f0a('0x146')] + _0x7f0a('0x1f4'), allComentsID[_0x7f0a('0x19')](_0x26b56c), foundNewComment++, _0x48a359++, foundNewUsernames[_0x7f0a('0x179')](foundNewComment, {
+                        'username': _0x524386[_0x7f0a('0x84')][_0x7f0a('0x37')],
+                        'comment': _0x524386[_0x7f0a('0x146')]
+                    }));
+                }), $(_0x7f0a('0x11'))[_0x7f0a('0xc0')](0x0)[_0x7f0a('0x1e')](_0x576bfa)) : ($('#comments_user')['is'](':visible') && $(_0x7f0a('0x11'))[_0x7f0a('0x1e0')](0x0), !$(_0x7f0a('0x1af'))['is'](_0x7f0a('0x1c')) && $(_0x7f0a('0x1af'))[_0x7f0a('0xc0')](0x0));
+                if (_0x576bfa) $(_0x7f0a('0x214'))['fadeIn'](0x0);
+                $(_0x7f0a('0x6f'))[_0x7f0a('0x148')]();
+            } else {}
+        },
+        'error': function(_0x29abbb, _0x58f752, _0x4d6683) {
+            console[_0x7f0a('0x194')](_0x29abbb), console[_0x7f0a('0x194')](_0x7f0a('0x208') + _0x58f752 + '\x20' + _0x4d6683), console['log'](_0x7f0a('0x1d4')), gettingComments = 0x0, gettingComments && calcLastLoadTime(), reqFailedSeconds = reqFailedSeconds + secondsEachRequest;
+            if (PRE_LOAD_STARTED) useComments2 = 0x0, secondsEachRequest = 0xa, gettingComments = 0x1;
+            else !useComments2 && !PRE_LOAD_STARTED && (useComments2 = 0x1, gettingComments = 0x0, usernameAuth[_0x7f0a('0xf2')] && (secondsEachRequest = 0xa, useComments2 = 0x0), clearTimeout(useApiTimeout), useApiTimeout = setTimeout(function() {
+                useComments2 = 0x0, needRecalculate = 0x1;
+            }, 0xea60));
+            calcularETA();
+        },
+        'timeout': 0xc350
+    });
+}
+
+function GetComments(_0xaf661b) {
+    if (DONE && end_cursor && !PRE_LOAD) return CancelGetComments(), ![];
+    var _0x75adad = {
+        'url': _0xaf661b,
+        'lid': last_lid,
+        'email': $(_0x7f0a('0x1d1'))[_0x7f0a('0x1d2')](),
+        'username': user_info[_0x7f0a('0x37')],
+        'profile_picture': user_info[_0x7f0a('0x180')],
+        'postThumbnails': postThumbnails
+    };
+    gettingComments = Math[_0x7f0a('0x1ba')](Date[_0x7f0a('0x1fc')]()), cancelManual = 0x0, shortcode = getShortcodeFromURL(_0xaf661b), saveInServerCursor && !BACKGROUND_LOADING && (console[_0x7f0a('0x194')](_0x7f0a('0x40') + saveInServerCursor), end_cursor = saveInServerCursor), total_comments > MIN_SAVEINSERVER && usernameAuth['authorized'] != user_info[_0x7f0a('0x37')] && (useComments2 = 0x0);
+    var _0x28ebf5 = _0x7f0a('0x1b5') + shortcode + _0x7f0a('0x75') + end_cursor;
+    return (useComments2 || boostWServer || restrictProfile) && (_0x28ebf5 = API_URL + _0x7f0a('0x12f') + escape(_0xaf661b) + _0x7f0a('0x109') + end_cursor + _0x7f0a('0x54') + escape(JSON[_0x7f0a('0xd2')](usernameAuth)), useComments2 = 0x1), BACKGROUND_LOADING && (_0x28ebf5 = 'https://api.sorteiogram.com/api/getLastComments.php?shortcode=' + shortcode + '&background=1', useComments = 0x0, secondsEachRequest = 0x1), DEV && (document[_0x7f0a('0xed')][_0x7f0a('0x29')] = shortcode, console[_0x7f0a('0x194')](_0x7f0a('0x1d3') + requestCounter + ''), console[_0x7f0a('0x194')](_0x7f0a('0x66') + end_cursor)), loadCommentXHR = $['ajax']({
+        'start_time': new Date()[_0x7f0a('0x141')](),
+        'url': _0x28ebf5,
+        'success': function(_0x25aa5d) {
+            requestCommentsCounter++;
+            var _0x179584 = _0x25aa5d;
+            typeof _0x25aa5d != _0x7f0a('0x120') && (_0x25aa5d = {
+                'status': 'ok'
+            }, console[_0x7f0a('0x194')](_0x7f0a('0x105'))), !started_time && (started_time = Math['floor'](Date[_0x7f0a('0x1fc')]() / 0x3e8)), saveInServer && (saveInServerCursor = end_cursor, !BACKGROUND_LOADING ? $[_0x7f0a('0xc1')]({
+                'type': _0x7f0a('0x18'),
+                'url': _0x7f0a('0xff'),
+                'data': {
+                    'auth': JSON[_0x7f0a('0xd2')](usernameAuth),
+                    'cpm': CPM,
+                    'total_comments': total_comments,
+                    'total_comments_loaded': total_comments_loaded,
+                    'current_end_cursor': end_cursor,
+                    'shortcode': shortcode,
+                    'savedTimes': savedTimes,
+                    'simulateServer': simulateServer,
+                    'requestCommentsCounter': requestCommentsCounter,
+                    'data': JSON['stringify'](_0x25aa5d)
+                },
+                'success': function(_0x47541a) {
+                    savedTimes++, _0x47541a = _0x47541a || {}, _0x47541a[_0x7f0a('0x177')] == 'ok' && (console[_0x7f0a('0x194')](_0x7f0a('0x189') + _0x47541a[_0x7f0a('0xcf')]), console[_0x7f0a('0x194')](_0x7f0a('0x188') + _0x47541a[_0x7f0a('0xa8')]), _0x47541a[_0x7f0a('0xcf')] > 0x0 ? (!PRE_LOAD_STARTED && (total_comments_loaded = total_comments_loaded + _0x47541a['new']), DONE = 0x0) : PRE_LOAD && !saveInServer && (PRE_LOAD_STARTED = 0x1, saveInServerCursor = '', end_cursor = ''), !PRE_LOAD_STARTED && (!current_ed && (current_ed = _0x47541a[_0x7f0a('0x70')]), saveInServerCursor = '')), gettingComments && calcLastLoadTime(), gettingComments = 0x0;
+                },
+                'error': function(_0x1a40d0, _0x5ea6dd, _0x592cda) {
+                    gettingComments = 0x0, gettingComments && calcLastLoadTime();
+                }
+            }) : gettingComments = 0x0), $(_0x7f0a('0xe7'))[_0x7f0a('0x1e0')](0x0);
+            var _0x38dc64 = 0x0;
+            !saveInServer && (gettingComments && calcLastLoadTime(), gettingComments = 0x0);
+            if (!avarageRequestMS) _0x38dc64 = 0x1;
+            avarageRequestMS = new Date()[_0x7f0a('0x141')]() - this[_0x7f0a('0x1c5')], (_0x38dc64 || needRecalculate) && (calcularETA(), needRecalculate = 0x0), BACKGROUND_LOADING && (_0x25aa5d = {
+                'status': 'ok',
+                'data': {
+                    'shortcode_media': {
+                        'edge_media_to_comment': {
+                            'edges': _0x179584
+                        }
+                    }
+                }
+            }), _0x25aa5d = _0x25aa5d || {};
+            if (_0x25aa5d[_0x7f0a('0x177')] == 'ok') {
+                if (!PRE_LOAD) $('#wrap_advanced_options')[_0x7f0a('0xc0')](0x0);
+                $(_0x7f0a('0x20d'))[_0x7f0a('0xc0')](0x0), $(_0x7f0a('0x32'))[_0x7f0a('0x1e0')](0x0);
+                var _0x4ab186 = _0x25aa5d;
+                _0x4ab186 = _0x4ab186[_0x7f0a('0x1ed')] || {}, _0x4ab186 = _0x4ab186[_0x7f0a('0x1aa')] || {}, _0x4ab186[_0x7f0a('0x131')] = _0x4ab186[_0x7f0a('0x131')] || {}, _0x4ab186['edge_media_to_comment'][_0x7f0a('0x1b8')] !== undefined && !total_comments && (total_comments = _0x4ab186[_0x7f0a('0x131')][_0x7f0a('0x1b8')], $('#total_comments,\x20.total_comments')[_0x7f0a('0x146')](numberWithCommas(total_comments))), _0x4ab186[_0x7f0a('0x131')]['page_info'] = _0x4ab186[_0x7f0a('0x131')][_0x7f0a('0x50')] || {}, _0x4ab186['edge_media_to_comment']['edges'] = _0x4ab186['edge_media_to_comment'][_0x7f0a('0x213')] || [];
+                if (restrictProfile && requestCommentsCounter == 0x1 && !_0x4ab186[_0x7f0a('0x131')][_0x7f0a('0x213')]['length']) return alert(_0x7f0a('0x3d')), BackToStep(0x4), CancelGetComments(0x0), ![];
+                usedEdCurrent = current_ed && current_ed == end_cursor ? !![] : ![];
+                if (usedEdCurrent) {}
+                if (_0x4ab186[_0x7f0a('0x131')][_0x7f0a('0x50')][_0x7f0a('0x126')] && _0x4ab186[_0x7f0a('0x131')][_0x7f0a('0x50')][_0x7f0a('0x126')] != _0x7f0a('0x1e2')) end_cursor = _0x4ab186[_0x7f0a('0x131')][_0x7f0a('0x50')][_0x7f0a('0x126')];
+                else !_0x4ab186['edge_media_to_comment'][_0x7f0a('0x50')][_0x7f0a('0x159')] && typeof _0x4ab186[_0x7f0a('0x131')][_0x7f0a('0x50')][_0x7f0a('0x159')] == _0x7f0a('0x1db') && (end_cursor = '');
+                !PRE_LOAD_STARTED ? devCounter += _0x4ab186[_0x7f0a('0x131')][_0x7f0a('0x213')][_0x7f0a('0x5')] : devCounter = _0x4ab186[_0x7f0a('0x131')][_0x7f0a('0x1b8')];
+                hasAuth = usernameAuth[_0x7f0a('0x37')] == user_info['username'] ? !![] : ![], console[_0x7f0a('0x194')](_0x7f0a('0xdc') + user_info[_0x7f0a('0x37')]), console[_0x7f0a('0x194')](_0x7f0a('0x83') + shortcode), console[_0x7f0a('0x194')](_0x7f0a('0x14b') + end_cursor), console[_0x7f0a('0x194')](_0x7f0a('0x1a1') + _0x4ab186[_0x7f0a('0x131')][_0x7f0a('0x213')][_0x7f0a('0x5')]), console[_0x7f0a('0x194')](_0x7f0a('0x1e5') + devCounter), console[_0x7f0a('0x194')](_0x7f0a('0x113') + hasAuth);
+                if (usedEdCurrent && !end_cursor) return PRE_LOAD && saveInServer && (PRE_LOAD_STARTED = 0x1, saveInServerCursor = '', end_cursor = ''), getLastComments(), CancelGetComments(), ![];
+                usedEdCurrent && end_cursor && (use_current_ed = 0x0), saveInServer && current_ed && use_current_ed && (end_cursor = current_ed);
+                var _0x54573c = _0x4ab186[_0x7f0a('0x131')][_0x7f0a('0x213')][_0x7f0a('0x5')];
+                lastResults = _0x54573c;
+                var _0x206ad8 = '',
+                    _0x15a069 = 0x0,
+                    _0x45d6b9 = _0x4ab186[_0x7f0a('0x131')][_0x7f0a('0x213')];
+                updateTotalCommentsLoadedPart1(_0x45d6b9[_0x7f0a('0x5')]), updateLoadedPercent(devCounter, total_comments), !saveInServer && (_0x45d6b9 = _0x45d6b9[_0x7f0a('0x28')]());
+                var _0x4643c2 = 0x0;
+                canAppendNewComment() && $[_0x7f0a('0x8b')](_0x45d6b9, function(_0x266e0c, _0x4cf010) {
+                    if (!BACKGROUND_LOADING) _0x4cf010 = _0x4cf010[_0x7f0a('0x58')];
+                    var _0x3c0fb6 = _0x4cf010['id'];
+                    allComentsID[_0x7f0a('0x174')](_0x3c0fb6) == -0x1 && (ccounter++, _0x206ad8 = _0x206ad8 + _0x7f0a('0x1be') + ccounter + '\x22\x20class=\x22commentList\x22\x20data-userid=\x22' + _0x4cf010['owner']['id'] + _0x7f0a('0x175') + _0x4cf010[_0x7f0a('0x84')]['username'] + _0x7f0a('0x3e') + _0x4cf010[_0x7f0a('0xe4')] + _0x7f0a('0xf6') + _0x4cf010['id'] + _0x7f0a('0x135') + _0x4cf010[_0x7f0a('0x84')][_0x7f0a('0x180')] + _0x7f0a('0x44') + ccounter + _0x7f0a('0x154') + _0x4cf010[_0x7f0a('0x84')][_0x7f0a('0x37')] + _0x7f0a('0x1c1') + ccounter + '\x22>' + _0x4cf010[_0x7f0a('0x146')] + _0x7f0a('0x1f4'), allComentsID[_0x7f0a('0x19')](_0x3c0fb6), foundNewComment++, _0x4643c2++, foundNewUsernames[_0x7f0a('0x179')](foundNewComment, {
+                        'username': _0x4cf010[_0x7f0a('0x84')][_0x7f0a('0x37')],
+                        'comment': _0x4cf010[_0x7f0a('0x146')]
+                    }));
+                });
+                console['log'](_0x7f0a('0x1d0') + foundNewComment), console[_0x7f0a('0x194')](_0x7f0a('0xd5') + _0x4643c2), PRE_LOAD_STARTED && !_0x4643c2 && (console[_0x7f0a('0x194')](_0x7f0a('0x1df')), end_cursor = '', gettingComments = 0x1), console[_0x7f0a('0x194')](_0x7f0a('0x1b2'));
+                if (_0x206ad8) $(_0x7f0a('0x214'))['fadeIn'](0x0);
+                $(_0x7f0a('0x6f'))[_0x7f0a('0x148')]();
+                if (canAppendNewComment()) {
+                    if (_0x206ad8) _0x206ad8 = _0x206ad8 + '<center><img\x20src=\x22/./assets/images/loader.gif\x22\x20width=\x2230\x22\x20style=\x22margin:10px\x200\x2010px\x200;\x22\x20class=\x22finalLoader\x22\x20/></center>';
+                }
+                if (!PRE_LOAD) $(_0x7f0a('0x63'))[_0x7f0a('0xc0')](0x0);
+                if (_0x4643c2) {
+                    if (saveInServer) {
+                        var _0x22bea8 = $('.commentList')[_0x7f0a('0x5')];
+                        if (_0x22bea8 > 0x32 && _0x4643c2 > 0xa) $(_0x7f0a('0x11'))[_0x7f0a('0xc0')](0x0)[_0x7f0a('0x20')](_0x206ad8);
+                        else $(_0x7f0a('0x11'))['fadeIn'](0x0)[_0x7f0a('0x1e')](_0x206ad8);
+                    } else canAppendNewComment() ? $(_0x7f0a('0x11'))[_0x7f0a('0xc0')](0x0)[_0x7f0a('0x1e')](_0x206ad8) : ($(_0x7f0a('0x11'))['is'](':visible') && $(_0x7f0a('0x11'))[_0x7f0a('0x1e0')](0x0), !$(_0x7f0a('0x1af'))['is'](':visible') && $(_0x7f0a('0x1af'))['fadeIn'](0x0));
+                }
+                updateTotalCommentsLoaded(), !end_cursor && !BACKGROUND_LOADING && _0x45d6b9[_0x7f0a('0x5')] && (!PRE_LOAD ? (DONE = 0x1, CancelGetComments()) : (console['log'](_0x7f0a('0x1ee')), PRE_LOAD_STARTED = 0x1, requestCounter = 0x0, gettingComments = 0x1, total_comments = _0x4ab186[_0x7f0a('0x131')]['count'], saveInServer ? (total_comments_loaded = _0x4ab186[_0x7f0a('0x131')][_0x7f0a('0x1b8')], foundNewComment = total_comments_loaded) : total_comments_loaded = _0x4643c2, preLoadSeconds = 0x1e, !_0x4643c2 && (secondsEachRequest = 0xf), $(_0x7f0a('0x17c'))[_0x7f0a('0x20')](_0x7f0a('0xae') + preLoadSeconds + _0x7f0a('0x121')), $(_0x7f0a('0xec'))[_0x7f0a('0x146')](numberWithCommas(total_comments)), $(_0x7f0a('0xb5'))[_0x7f0a('0x148')](), $('#loader_bar')[_0x7f0a('0x168')]('width', _0x7f0a('0x30')), $('.advise,#wrap_loader_bar')['fadeIn'](0x0), loadedPercent = 0x64));
+                if (!end_cursor && !BACKGROUND_LOADING && !_0x45d6b9[_0x7f0a('0x5')] && _0x4ab186[_0x7f0a('0x131')]['count']) return clearInterval(getCommentsInterval), GoToStep(0x4), alert('Comentário\x20da\x20página\x20foi\x20desativado.\x20Por\x20favor,\x20habilite\x20novamente.'), ![];
+            } else {}
+        },
+        'error': function(_0x59eb04, _0x2e71d2, _0xdb03e5) {
+            console[_0x7f0a('0x194')](_0x59eb04), console[_0x7f0a('0x194')](_0x7f0a('0x208') + _0x2e71d2 + '\x20' + _0xdb03e5), console[_0x7f0a('0x194')](_0x7f0a('0x1d4')), gettingComments = 0x0, gettingComments && calcLastLoadTime(), reqFailedSeconds = reqFailedSeconds + secondsEachRequest;
+            if (PRE_LOAD_STARTED) useComments2 = 0x0, secondsEachRequest = 0xa, gettingComments = 0x1;
+            else !useComments2 && !PRE_LOAD_STARTED && (useComments2 = 0x1, gettingComments = 0x0, usernameAuth[_0x7f0a('0xf2')] && (secondsEachRequest = 0xa, useComments2 = 0x0), clearTimeout(useApiTimeout), useApiTimeout = setTimeout(function() {
+                useComments2 = 0x0, needRecalculate = 0x1;
+            }, 0xea60));
+            calcularETA();
+        },
+        'timeout': 0xc350
+    }), !canShowComments && ($(_0x7f0a('0x139'))['is'](':visible') && $(_0x7f0a('0x1af'))[_0x7f0a('0x1e0')](0x0)), !![];
+}
+
+function updateTotalCommentsLoadedPart1(_0x29e4f5) {
+    !saveInServer && (total_comments_loaded = total_comments_loaded + _0x29e4f5);
+}
+
+function updateLoadedPercent(_0x4d24d7, _0x5e79e3) {
+    if (PRE_LOAD) return;
+    loadedPercent = _0x4d24d7 * 0x64 / _0x5e79e3, DONE && (loadedPercent = 0x64), $('#loader_bar')[_0x7f0a('0x168')](_0x7f0a('0x1ad'), loadedPercent + '%');
+    var _0x4bdf6f = 0x0;
+    _0x5e79e3 > 0xc350 && (_0x4bdf6f = 0x2), $(_0x7f0a('0x1b3'))[_0x7f0a('0x146')](loadedPercent[_0x7f0a('0xb1')](_0x4bdf6f)), $(document)[_0x7f0a('0x65')](_0x7f0a('0x157'), loadedPercent['toFixed'](_0x4bdf6f) + _0x7f0a('0xbe'));
+}
+
+function updateTotalCommentsLoaded() {
+    if (total_comments_loaded <= 0x0) total_comments_loaded = 0x0;
+    var _0x4c3ba0 = canShowComments ? _0x7f0a('0x20a') : '';
+    if (!PRE_LOAD_STARTED) $(_0x7f0a('0x112'))[_0x7f0a('0x20')](_0x7f0a('0x1b4') + (total_comments_loaded ? total_comments_loaded : 0x0) + _0x7f0a('0x8') + numberWithCommas(total_comments) + _0x7f0a('0x7d') + _0x4c3ba0 + _0x7f0a('0x17b'));
+    $(_0x7f0a('0xc8'))[_0x7f0a('0x8b')](function() {
+        $(this)['prop'](_0x7f0a('0xcd'), last_number_loaded)[_0x7f0a('0x27')]({
+            'Counter': $(this)[_0x7f0a('0x146')]()
+        }, {
+            'duration': 0x7d0,
+            'easing': _0x7f0a('0x3c'),
+            'step': function(_0x6d168a) {
+                $(this)[_0x7f0a('0x146')](Math[_0x7f0a('0x169')](_0x6d168a));
+            }
+        });
+    }), last_number_loaded = total_comments_loaded, total_comments_loaded >= total_comments && $(_0x7f0a('0xb5'))['remove']();
+    var _0x2297c9 = document['getElementById'](_0x7f0a('0xf4'));
+    _0x2297c9['scrollTop'] = _0x2297c9['scrollHeight'], saveInServer && total_comments_loaded > total_comments && total_comments && !PRE_LOAD && CancelGetComments(), DONE && (total_comments_loaded = total_comments);
+}
+
+function updateCurrentLoadedComments(_0x3e2f69) {
+    devCounter += _0x3e2f69, updateTotalCommentsLoadedPart1(_0x3e2f69), updateLoadedPercent(devCounter, total_comments), updateTotalCommentsLoaded();
+}
+
+function ChangeService(_0x337274) {
+    service = _0x337274, CalculatePrice();
+}
+
+function CalculatePrice(_0xe9dfc6) {
+    _0xe9dfc6 && (qt = _0xe9dfc6), qt_i = qt / 0x3e8;
+    var _0x31cca6 = discounts[service][qt];
+    if (!_0x31cca6) price = prices[service] * qt_i;
+    else price = _0x31cca6;
+    $(_0x7f0a('0x16'))[_0x7f0a('0x146')](formatReal(price));
+}
+
+function BackToStep(_0x5c4e2f, _0x440489) {
+    if (_0x440489 === undefined) _0x440489 = 0x0;
+    if (!_0x440489) {
+        var _0x3ca78f = $(_0x7f0a('0x17c'))['is'](_0x7f0a('0x1c'));
+        if (PRE_LOAD_STARTED && _0x3ca78f) return CancelGetComments(0x1), ![];
+    }
+    allComentsID = [], requestCommentsCounter = 0x0;
+    if (_0x3ca78f) {
+        var _0x839eb0 = confirm(_0x7f0a('0x1c9'));
+        if (!_0x839eb0) return ![];
+        saveInServer && (location['href'] = '/');
+    }
+    clearInterval(getCommentsInterval), clearInterval(intervalSorteio), STOP_EXEC = !![], RECALC_ETA_NEW_EXEC = !![], main_url = '', RestartConfetti(), $('.steps')[_0x7f0a('0x1e0')](0x0), $('#step_' + _0x5c4e2f)[_0x7f0a('0xc0')](0x0), loadAuthUsername(), _0x5c4e2f == 0x4 && (usernameAuth[_0x7f0a('0xf2')] = 0x0);
+}
+
+function GoToStep(_0x381dc0) {
+    loadAuthUsername(), window[_0x7f0a('0x42')](0x0, 0x0), allComentsID = [], DONE = 0x0, $(_0x7f0a('0x11'))['html'](''), $(_0x7f0a('0x139'))['fadeOut'](0x0), RestartConfetti(), $(_0x7f0a('0x1cc'))['text'](''), $(_0x7f0a('0x3b'))[_0x7f0a('0x1e0')](0x0), $(_0x7f0a('0x1d6'))['fadeIn'](0x0), $(_0x7f0a('0x16f'))[_0x7f0a('0x1e0')](0x0);
+    if (_0x381dc0 == 0x3 || _0x381dc0 == 0x4) {
+        var _0x1723d1 = $(_0x7f0a('0x20f'))[_0x7f0a('0x1d2')](),
+            _0x5e861e = $(_0x7f0a('0x1d1'))[_0x7f0a('0x1d2')]()[_0x7f0a('0x1c7')]();
+        try {
+            localStorage['setItem']('email', _0x5e861e);
+        } catch (_0x51b6d8) {}
+        _0x5e861e = _0x5e861e[_0x7f0a('0x67')](/ /g, ''), $(_0x7f0a('0x1d1'))[_0x7f0a('0x1d2')]('')[_0x7f0a('0x1d2')](_0x5e861e);
+        if (!validateEmail(_0x5e861e)) return alert(_0x7f0a('0x97')), $(_0x7f0a('0x145'))[_0x7f0a('0xc0')](0x0), $(_0x7f0a('0x1d6'))[_0x7f0a('0x1e0')](0x0), ![];
+        if (!_0x1723d1 || !_0x5e861e) {
+            $('#loader')[_0x7f0a('0x1e0')](0x0), $(_0x7f0a('0x145'))[_0x7f0a('0xc0')](0x0);
+            if (!_0x1723d1) alert(_0x7f0a('0x99'));
+            else alert(_0x7f0a('0x127'));
+            return ![];
+        }
+        $(_0x7f0a('0x1cc'))[_0x7f0a('0x146')](_0x7f0a('0x5d') + _0x1723d1 + _0x7f0a('0x20b'));
+        var _0x5b8d6a = _0x7f0a('0x6e') + _0x1723d1 + _0x7f0a('0xb3');
+        $[_0x7f0a('0x119')](APP_URL + _0x7f0a('0x25') + escape(_0x5e861e) + '&username=' + escape(_0x1723d1) + _0x7f0a('0x5a') + current_time + _0x7f0a('0x153')), $[_0x7f0a('0x119')](_0x5b8d6a, function(_0x489630) {
+            try {
+                user_info = _0x489630[_0x7f0a('0xd9')]['user'], mediaRecent = user_info[_0x7f0a('0x6')][_0x7f0a('0x213')], _0x1723d1 = user_info['username'], localStorage[_0x7f0a('0x216')](_0x7f0a('0x2d'), user_info[_0x7f0a('0x180')]), $[_0x7f0a('0x16d')](API_URL + _0x7f0a('0x14c'), {
+                    'data': JSON[_0x7f0a('0xd2')](user_info)
+                });
+            } catch (_0x3c0b05) {
+                user_info = {}, mediaRecent = {};
+            }
+            _0x489630 = _0x489630 || '';
+            var _0x5e2e1c = ![];
+            typeof _0x489630 == _0x7f0a('0xbb') && (_0x5e2e1c = _0x489630[_0x7f0a('0x174')](_0x7f0a('0x1f8')) != -0x1 ? !![] : ![]);
+            var _0xfd088f = 0x0;
+            if (!user_info[_0x7f0a('0x37')]) {
+                if (!_0x5e2e1c) return openProfileRestricted(), ![];
+                else _0xfd088f = 0x1;
+            }
+            $[_0x7f0a('0x119')](API_URL + _0x7f0a('0x25') + escape(_0x5e861e) + _0x7f0a('0x5c') + escape(_0x1723d1) + '&time=' + current_time + _0x7f0a('0x137') + _0xfd088f, function(_0xf5eb8e) {
+                if (_0xfd088f) {
+                    user_info = JSON[_0x7f0a('0x110')](_0xf5eb8e), _0x1723d1 = user_info[_0x7f0a('0x37')], user_info[_0x7f0a('0x6')] = user_info[_0x7f0a('0x6')] || {}, user_info['edge_owner_to_timeline_media']['edges'] = user_info[_0x7f0a('0x6')][_0x7f0a('0x213')] || [], mediaRecent = user_info[_0x7f0a('0x6')][_0x7f0a('0x213')], _0x1723d1 = user_info[_0x7f0a('0x37')];
+                    try {
+                        localStorage['setItem'](_0x7f0a('0x2d'), user_info[_0x7f0a('0x180')]);
+                    } catch (_0xca57e3) {}
+                    restrictProfile = 0x1, clearTimeout(useApiTimeout), useApiTimeout = setTimeout(function() {
+                        useComments2 = 0x0, needRecalculate = 0x1;
+                    }, 0xea60);
+                }
+                if (user_info[_0x7f0a('0x180')] && user_info[_0x7f0a('0x180')] !== undefined) $('.user-icon-index')[_0x7f0a('0xc0')](0x0)[_0x7f0a('0x168')](_0x7f0a('0x1c8'), _0x7f0a('0xe') + user_info[_0x7f0a('0x180')] + ')');
+                if (user_info[_0x7f0a('0x37')]) {
+                    loadAuthUsername(), $(_0x7f0a('0x93'))[_0x7f0a('0x146')](user_info[_0x7f0a('0x37')]);
+                    if (user_info[_0x7f0a('0x180')] && user_info[_0x7f0a('0x180')] !== undefined) $(_0x7f0a('0x1e4'))['css']({
+                        'backgroundImage': _0x7f0a('0xe') + user_info[_0x7f0a('0x180')] + ')'
+                    });
+                    $(_0x7f0a('0x20c'))[_0x7f0a('0x1e0')](0x0);
+                    if (user_info[_0x7f0a('0x10a')]) return $(_0x7f0a('0x20c'))['fadeIn'](0x0), $('.steps')[_0x7f0a('0x1e0')](0x0), $('#step_2')[_0x7f0a('0xc0')](0x0), $(_0x7f0a('0x1d6'))[_0x7f0a('0x1e0')](0x0), ![];
+                    if (user_info[_0x7f0a('0x37')] && user_info['id'] !== undefined) {
+                        current_time = Math[_0x7f0a('0x1ba')](Date[_0x7f0a('0x1fc')]() / 0x3e8), $('#loader\x20h2')[_0x7f0a('0x20')](_0x7f0a('0x124') + user_info[_0x7f0a('0x37')] + _0x7f0a('0x115')), $(_0x7f0a('0x0'))[_0x7f0a('0xc0')](0x0);
+                        var _0x42be87 = _0x7f0a('0x5e') + escape(user_info['username']) + _0x7f0a('0x200') + user_info['id'] + _0x7f0a('0x5a') + current_time,
+                            _0x42be87 = _0x7f0a('0xeb') + user_info['id'] + '%22,%22first%22:50}';
+                        $[_0x7f0a('0x119')](_0x42be87, function(_0x5423a3) {
+                            var _0xc7efd2 = {};
+                            try {
+                                mediaRecent = _0x5423a3['data'][_0x7f0a('0x13')][_0x7f0a('0x6')][_0x7f0a('0x213')], LOAD_POSTS_AFTER = _0x5423a3[_0x7f0a('0x1ed')][_0x7f0a('0x13')][_0x7f0a('0x6')][_0x7f0a('0x50')][_0x7f0a('0x126')];
+                            } catch (_0x38d0d1) {}
+                            mediaRecent && (_0xc7efd2 = mediaRecent);
+                            var _0x59f0f7 = 0x0;
+                            try {
+                                _0x59f0f7 = _0xc7efd2[_0x7f0a('0x5')];
+                            } catch (_0x22809f) {}
+                            if (!_0x59f0f7) return $(_0x7f0a('0x20c'))['fadeIn'](0x0)[_0x7f0a('0x146')](_0x7f0a('0x43')), $(_0x7f0a('0x3b'))[_0x7f0a('0x1e0')](0x0), $(_0x7f0a('0x145'))[_0x7f0a('0xc0')](0x0), $(_0x7f0a('0x1d6'))[_0x7f0a('0x1e0')](0x0), ![];
+                            var _0x196c09 = _0x7f0a('0x10b') + _0x7f0a('0x11a') + _0x7f0a('0x140');
+                            if (_0x59f0f7) $[_0x7f0a('0x8b')](_0xc7efd2, function(_0x4f9ebb, _0x35801c) {
+                                _0x35801c = _0x35801c[_0x7f0a('0x58')], _0x35801c[_0x7f0a('0x149')] = _0x7f0a('0x2b') + _0x35801c[_0x7f0a('0x12c')] + '/';
+                                var _0x1c79ef = 'GetMediaInfo(\x27' + _0x35801c[_0x7f0a('0x149')] + _0x7f0a('0x2e') + _0x4f9ebb + ')';
+                                _0x196c09 = _0x196c09 + _0x7f0a('0x17') + _0x35801c[_0x7f0a('0x10e')][0x0][_0x7f0a('0xa6')] + _0x7f0a('0x91') + _0x1c79ef + _0x7f0a('0xac') + _0x7f0a('0xa') + _0x7f0a('0x3f') + numberWithCommas(_0x35801c['edge_media_to_comment'][_0x7f0a('0x1b8')]) + '</div>' + '</div>\x20';
+                            });
+                            _0x196c09 = _0x196c09 + _0x7f0a('0x14d') + '</center>' + _0x7f0a('0x14d'), $('#media')[_0x7f0a('0x20')](_0x196c09), $(_0x7f0a('0x1d6'))['fadeOut'](0x0), $(_0x7f0a('0x1bf'))[_0x7f0a('0xc0')](0x0);
+                        })[_0x7f0a('0x98')](function() {
+                            alert(_0x7f0a('0x1e8')), BackToStep(0x2);
+                        });
+                    } else alert(_0x7f0a('0x111')), $(_0x7f0a('0x1d6'))[_0x7f0a('0x1e0')](0x0), $(_0x7f0a('0xbd'))[_0x7f0a('0xc0')](0x0);
+                } else alert(_0x7f0a('0x12e')), $(_0x7f0a('0x1d6'))[_0x7f0a('0x1e0')](0x0), $(_0x7f0a('0x145'))['fadeIn'](0x0);
+            });
+        })[_0x7f0a('0x98')](function() {
+            alert(_0x7f0a('0x123')), $(_0x7f0a('0x3b'))['fadeOut'](0x0), $(_0x7f0a('0x145'))[_0x7f0a('0xc0')](0x0), $(_0x7f0a('0x1d6'))[_0x7f0a('0x1e0')](0x0);
+        });
+    }
+    _0x381dc0 == 0x2 && ($(_0x7f0a('0x145'))[_0x7f0a('0xc0')](0x0), $('#loader')[_0x7f0a('0x1e0')](0x0));
+    if (_0x381dc0 == 0xa) {
+        var _0x5e861e = $(_0x7f0a('0x1d1'))['val']();
+        current_time = Math['floor'](Date[_0x7f0a('0x1fc')]() / 0x3e8);
+        var _0x5b8d6a = _0x7f0a('0xa2') + service + _0x7f0a('0x182') + escape(_0x5e861e) + _0x7f0a('0x3a') + qt + '&username=' + escape(user_info['username']) + _0x7f0a('0x18d') + escape(linkMedia) + '&time=' + current_time;
+        $[_0x7f0a('0x119')](_0x5b8d6a, function(_0x1a173f) {
+            var _0x24980a = JSON[_0x7f0a('0x110')](_0x1a173f);
+            if (_0x24980a[_0x7f0a('0x15a')]) location['href'] = _0x24980a['paypal_url'];
+            else $('#step_final')[_0x7f0a('0xc0')](0x0), $(_0x7f0a('0x1d6'))['fadeOut'](0x0);
+        });
+    }
+}
+
+function formatReal(_0x5b3e9b) {
+    return 'R$\x20' + _0x5b3e9b[_0x7f0a('0xb1')](0x2)[_0x7f0a('0x67')]('.', ',');
+}
+
+function OpenPage(_0x4f4c77) {
+    if (_0x4f4c77 == 'buy') CloseToggleMenu(), location[_0x7f0a('0x195')] = '/';
+    else {
+        if (_0x4f4c77 == _0x7f0a('0x132')) {
+            $(_0x7f0a('0xfa'))['toggle']();
+            var _0x4f2ef4 = $(_0x7f0a('0xd3'));
+            _0x4f2ef4[_0x7f0a('0xde')](_0x7f0a('0x18a')) ? _0x4f2ef4['addClass'](_0x7f0a('0x1dc'))[_0x7f0a('0xee')](_0x7f0a('0x18a')) : _0x4f2ef4[_0x7f0a('0x118')](_0x7f0a('0x18a'))[_0x7f0a('0xee')](_0x7f0a('0x1dc'));
+        } else {
+            if (_0x4f4c77 == _0x7f0a('0xf8')) CloseToggleMenu(), $('.wrap-prices,\x20.box')[_0x7f0a('0x1e0')](0x0), $(_0x7f0a('0x20d'))[_0x7f0a('0x1e0')](0x0), $(_0x7f0a('0x21c'))['fadeIn'](0x0);
+            else _0x4f4c77 == 'faq' && (CloseToggleMenu(), $(_0x7f0a('0xdf'))['fadeOut'](0x0), $('.faq')['fadeIn'](0x0));
+        }
+    }
+}
+
+function SendContact() {
+    if (!$(_0x7f0a('0xb9'))[_0x7f0a('0x1d2')]() || !$(_0x7f0a('0x209'))[_0x7f0a('0x1d2')]() || !$(_0x7f0a('0x192'))['val']() || !$(_0x7f0a('0x64'))['val']()) return alert(_0x7f0a('0xe2')), ![];
+    $(_0x7f0a('0x20d'))[_0x7f0a('0xc0')](), $(_0x7f0a('0x5b'))[_0x7f0a('0x1e0')](0x0);
+    var _0xd7f8d2 = {
+        'name': $(_0x7f0a('0xb9'))['val'](),
+        'email': $(_0x7f0a('0x192'))[_0x7f0a('0x1d2')](),
+        'url': $(_0x7f0a('0x209'))[_0x7f0a('0x1d2')](),
+        'msg': $(_0x7f0a('0x64'))[_0x7f0a('0x1d2')]()
+    };
+    $[_0x7f0a('0x16d')]('/ajax/send_contact.php', _0xd7f8d2, function(_0x475f53) {
+        $(_0x7f0a('0x20d'))[_0x7f0a('0x1e0')](0x0), $(_0x7f0a('0x7a'))[_0x7f0a('0xc0')](0x0);
+    });
+}
+$(document)[_0x7f0a('0x1b')](function() {
+    localStorage[_0x7f0a('0x116')](_0x7f0a('0x37')) && $(_0x7f0a('0x20f'))['val'](localStorage['getItem'](_0x7f0a('0x37'))), localStorage[_0x7f0a('0x116')]('profile_picture') && localStorage[_0x7f0a('0x116')](_0x7f0a('0x2d')) !== undefined && $('.user-icon-index')[_0x7f0a('0xc0')](0x0)[_0x7f0a('0x168')](_0x7f0a('0x1c8'), _0x7f0a('0xe') + localStorage[_0x7f0a('0x116')](_0x7f0a('0x2d')) + ')'), localStorage[_0x7f0a('0x116')](_0x7f0a('0x1ff')) && $(_0x7f0a('0x1d1'))[_0x7f0a('0x1d2')](localStorage[_0x7f0a('0x116')]('email')), $(_0x7f0a('0xdb'))[_0x7f0a('0x1a3')](function() {
+        OpenPage(_0x7f0a('0x1fd'));
+    }), $(_0x7f0a('0xfc'))[_0x7f0a('0x1a3')](function() {
+        OpenPage(_0x7f0a('0xc9'));
+    }), $('#prices')[_0x7f0a('0x1a3')](function() {
+        OpenPage(_0x7f0a('0x132'));
+    }), $('#contact')['click'](function() {
+        OpenPage('contact');
+    });
+}), $(_0x7f0a('0x61'))['on'](_0x7f0a('0x1a3'), function() {
+    $(this)[_0x7f0a('0x7')]();
+});
+
+function validateEmail(_0x53ebc6) {
+    _0x53ebc6 = _0x53ebc6[_0x7f0a('0x1c7')]();
+    var _0x27e4d9 = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return _0x27e4d9[_0x7f0a('0x6a')](_0x53ebc6);
+}
+var filters = [{
+        'filter': _0x7f0a('0x152'),
+        'value': ''
+    }, {
+        'filter': _0x7f0a('0x1b1'),
+        'value': '0'
+    }, {
+        'filter': 'owner_comment_dup',
+        'value': '0'
+    }],
+    newLoadedComments = [];
+
+function syncNewLoaded() {
+    var _0x4bdc75 = [];
+    try {
+        _0x4bdc75 = $(_0x7f0a('0x129'));
+    } catch (_0x1176d3) {
+        return console[_0x7f0a('0x194')](_0x1176d3), alert(_0x7f0a('0x4f')), ![];
+    }
+    var _0x338372 = foundNewComment;
+    if (_0x338372 && !loadedComments[_0x7f0a('0x5')]) {
+        console['log'](_0x7f0a('0x45') + _0x338372);
+        for (var _0x4cefee = 0x0; _0x4cefee <= _0x338372; _0x4cefee++) {
+            var _0x39b56a = _0x4bdc75['eq'](_0x4cefee);
+            if (_0x39b56a['length']) {
+                console[_0x7f0a('0x194')](_0x39b56a);
+                var _0x2d77b2 = _0x39b56a[_0x7f0a('0x15b')]('id');
+                _0x2d77b2 = _0x2d77b2['replace']('comment-', '');
+                var _0xf0b19f = $('#caption-' + _0x2d77b2)[_0x7f0a('0x146')]();
+                loadedComments[_0x7f0a('0x19')]({
+                    'owner': {
+                        'username': _0x39b56a[_0x7f0a('0x1ed')]('username'),
+                        'profile_pic_url': _0x39b56a[_0x7f0a('0x1ed')](_0x7f0a('0xa3'))
+                    },
+                    'time': _0x39b56a[_0x7f0a('0x1ed')](_0x7f0a('0x78')),
+                    'text': _0xf0b19f,
+                    'id': _0x2d77b2,
+                    'commentid': _0x39b56a[_0x7f0a('0x1ed')](_0x7f0a('0x207'))
+                });
+            }
+        }
+    }
+    for (var _0x4cefee = 0x0, _0x338372 = total_comments_loaded; _0x4cefee < _0x338372; ++_0x4cefee) {
+        newLoadedComments[_0x4cefee] = loadedComments[_0x4cefee];
+    }
+    return newLoadedComments;
+}
+var ownerCounter = {};
+
+function calculateReport() {
+    $[_0x7f0a('0x16d')](_0x7f0a('0x62'), {
+        'data': JSON[_0x7f0a('0xd2')](newLoadedComments),
+        'function'(_0x526e3d) {
+            console[_0x7f0a('0x194')](_0x526e3d);
+        }
+    });
+}
+
+function openVencedor(_0x2f752b) {
+    if (_0x2f752b === undefined) _0x2f752b = 0x0;
+    if (_0x2f752b != 0x2) RestartConfetti();
+    $(_0x7f0a('0x1ea'))[_0x7f0a('0xc0')](0x0);
+    if (!_0x2f752b) setTimeout(function() {
+        StartConfetti();
+    }, 0x1f4);
+    $(_0x7f0a('0x1a5'))[_0x7f0a('0x1e0')](0x0), $(_0x7f0a('0x12'))[_0x7f0a('0x1e0')](0x0);
+}
+
+function closeVencedor() {
+    $('#page-container')[_0x7f0a('0xc0')](0x0), jumpToVencedorLine(vencedor, 0x0), $(_0x7f0a('0x1ea'))[_0x7f0a('0x1e0')](0x0), RestartConfetti(), checkingRules = 0x0;
+    if (isfollowingRequest) {
+        forceCancelFollowingRequest = 0x1, isfollowingRequest[_0x7f0a('0x122')](), updateCounterProfileRegulamento();
+        if (countCheckRulesGoInterval);
+        clearInterval(countCheckRulesGoInterval);
+    }
+}
+
+function FilterComments() {
+    var _0x2e0a10 = 0x0,
+        _0x52aee9 = [],
+        _0x28bb46 = [],
+        _0x24101b = filters[_0x7f0a('0x5')];
+    syncNewLoaded();
+    if (_0x24101b) {
+        console[_0x7f0a('0x194')](_0x7f0a('0x186')), console[_0x7f0a('0x194')](filters), $[_0x7f0a('0x8b')](filters, function(_0x110b56, _0x25639a) {
+            var _0xf59b56 = _0x25639a[_0x7f0a('0xa5')],
+                _0x385c64 = _0x25639a[_0x7f0a('0xe0')];
+            _0xf59b56 == _0x7f0a('0x152') && _0x385c64 && $[_0x7f0a('0x8b')](newLoadedComments, function(_0x4ecd43, _0x23323b) {
+                if (_0x4ecd43 != undefined && _0x23323b != undefined) {
+                    var _0x246981 = _0x23323b[_0x7f0a('0x146')]['toLowerCase']();
+                    _0x385c64 = _0x385c64[_0x7f0a('0x5f')](), _0x246981[_0x7f0a('0x174')](_0x385c64) == -0x1 && _0x23323b[_0x7f0a('0x84')][_0x7f0a('0x37')][_0x7f0a('0x174')](_0x385c64) == -0x1 && delete newLoadedComments[_0x4ecd43];
+                }
+            }), _0xf59b56 == _0x7f0a('0x11b') && $(_0x7f0a('0x14'))['is'](_0x7f0a('0x13f')) && (console['log'](_0x7f0a('0x201')), console[_0x7f0a('0x194')](_0xf59b56), $['each'](newLoadedComments, function(_0x3f3712, _0x5da506) {
+                _0x3f3712 != undefined && _0x5da506 != undefined && (_0x52aee9[_0x7f0a('0x174')](_0x5da506[_0x7f0a('0x84')][_0x7f0a('0x37')]) != -0x1 ? delete newLoadedComments[_0x3f3712] : _0x52aee9['push'](_0x5da506[_0x7f0a('0x84')][_0x7f0a('0x37')]));
+            })), _0xf59b56 == _0x7f0a('0x1b1') && $(_0x7f0a('0x210'))['is'](_0x7f0a('0x13f')) && $['each'](newLoadedComments, function(_0x35877e, _0x4630f1) {
+                _0x35877e != undefined && _0x4630f1 != undefined && (_0x28bb46['indexOf'](_0x4630f1[_0x7f0a('0x146')]) != -0x1 ? delete newLoadedComments[_0x35877e] : _0x28bb46['push'](_0x4630f1[_0x7f0a('0x146')]));
+            });
+        });
+        var _0x1a5772 = '',
+            _0xca62cb = 0x0;
+        return $[_0x7f0a('0x8b')](newLoadedComments, function(_0x2987ea, _0x2a0589) {
+            _0x2987ea != undefined && _0x2a0589 != undefined && (_0xca62cb++, _0x1a5772 = _0x1a5772 + '<li\x20id=\x22comment-' + _0xca62cb + _0x7f0a('0x68') + _0x2a0589[_0x7f0a('0x84')]['id'] + _0x7f0a('0x175') + _0x2a0589[_0x7f0a('0x84')]['username'] + '\x22\x20data-commentid=\x22' + _0x2a0589['id'] + _0x7f0a('0x3e') + _0x2a0589[_0x7f0a('0xe4')] + _0x7f0a('0x135') + _0x2a0589[_0x7f0a('0x84')][_0x7f0a('0x180')] + _0x7f0a('0x44') + _0xca62cb + '\x22>@' + _0x2a0589[_0x7f0a('0x84')][_0x7f0a('0x37')] + _0x7f0a('0x1c1') + _0xca62cb + '\x22>' + _0x2a0589[_0x7f0a('0x146')] + _0x7f0a('0x1f4'));
+        }), $(_0x7f0a('0x11'))[_0x7f0a('0xc0')](0x0)[_0x7f0a('0x20')](_0x1a5772), total_comments = _0xca62cb, $(_0x7f0a('0x112'))[_0x7f0a('0x146')](total_comments + _0x7f0a('0x1f')), !![];
+    } else return ![];
+}
+
+function addFilter(_0x2e83f6, _0xc00d1d) {
+    var _0x5c4136 = $(_0x7f0a('0x17c'))['is'](':visible');
+    if (saveInServer) return alert(_0x7f0a('0x1a7')), ![];
+    if (_0x5c4136) return alert(_0x7f0a('0x16b')), ![];
+    $[_0x7f0a('0x8b')](filters, function(_0x3d13a5, _0x568ebf) {
+        var _0x1b3fa1 = _0x568ebf[_0x7f0a('0xa5')],
+            _0xca6a07 = _0x568ebf[_0x7f0a('0xe0')];
+        _0x1b3fa1 == _0x2e83f6 && (!_0xc00d1d && (_0xc00d1d = $(_0x7f0a('0x19f') + _0x2e83f6 + ']')['is'](_0x7f0a('0x13f')) ? 0x1 : 0x0), filters[_0x3d13a5] = {
+            'filter': _0x1b3fa1,
+            'value': _0xc00d1d
+        });
+    }), FilterComments();
+}
+
+function kFormatter(_0x1136e0) {
+    return _0x1136e0 > 0x3e7 ? (_0x1136e0 / 0x3e8)[_0x7f0a('0xb1')](0x1) + 'k' : _0x1136e0;
+}
+
+function sortearEffect(_0x3c2e80) {
+    vencedor = 0x0;
+    var _0x2a8dbd = $(_0x7f0a('0x17c'))['is'](_0x7f0a('0x1c'));
+    if (_0x2a8dbd) return alert(_0x7f0a('0x219')), ![];
+    if (saveInServer) {
+        var _0x41789d = total_comments_loaded;
+        vencedor = Sortear(_0x41789d);
+        var _0x1dc21c = '',
+            _0x4abed9 = vencedor;
+        getVencedorStatus = 0x0, sortearEffect2(_0x3c2e80);
+        var _0x473df7 = _0x7f0a('0x1f1') + shortcode + '&number=' + vencedor;
+        return $[_0x7f0a('0xc1')]({
+            'type': _0x7f0a('0x16d'),
+            'url': _0x473df7,
+            'data': {
+                'auth': JSON['stringify'](usernameAuth)
+            },
+            'success': function(_0x84b0c8) {
+                $[_0x7f0a('0x8b')](_0x84b0c8, function(_0x5b9795, _0x4b2ca3) {
+                    _0x1dc21c = _0x1dc21c + '<li\x20id=\x22comment-' + _0x4b2ca3[_0x7f0a('0x150')] + _0x7f0a('0x68') + _0x4b2ca3['owner']['id'] + _0x7f0a('0x175') + _0x4b2ca3[_0x7f0a('0x84')][_0x7f0a('0x37')] + _0x7f0a('0x3e') + _0x4b2ca3[_0x7f0a('0xe4')] + _0x7f0a('0xf6') + _0x4b2ca3['id'] + '\x22\x20data-pic=\x22' + _0x4b2ca3[_0x7f0a('0x84')][_0x7f0a('0x180')] + _0x7f0a('0x44') + _0x4b2ca3[_0x7f0a('0x150')] + _0x7f0a('0x154') + _0x4b2ca3[_0x7f0a('0x84')][_0x7f0a('0x37')] + _0x7f0a('0x1c1') + _0x4b2ca3[_0x7f0a('0x150')] + '\x22>' + _0x4b2ca3[_0x7f0a('0x146')] + _0x7f0a('0x1f4');
+                }), getVencedorStatus = 0x1, $(_0x7f0a('0x11'))[_0x7f0a('0xc0')](0x0)[_0x7f0a('0x20')](_0x1dc21c), jumpToVencedorLine(vencedor);
+            },
+            'error': function() {
+                alert(_0x7f0a('0x9f')), $(_0x7f0a('0x1c0'))[_0x7f0a('0x1e0')](0x0);
+            }
+        }), ![];
+    }
+    sortearEffect2(_0x3c2e80);
+}
+
+function sortearEffect2(_0x973834) {
+    _0x973834 === undefined && (_0x973834 = 0x5), $('#sortearEffect')[_0x7f0a('0xc0')](0x0), document[_0x7f0a('0x19c')](_0x7f0a('0x106'))[_0x7f0a('0x33')] = _0x973834;
+    var _0x27a5e1 = setInterval(function() {
+        _0x973834--, _0x973834 >= 0x0 ? document[_0x7f0a('0x19c')](_0x7f0a('0x106'))[_0x7f0a('0x33')] = _0x973834 : document[_0x7f0a('0x19c')](_0x7f0a('0x106'))['innerHTML'] = _0x7f0a('0x1a4'), _0x973834 <= 0x0 && getVencedorStatus && (clearInterval(_0x27a5e1), $(_0x7f0a('0x1c0'))[_0x7f0a('0x1e0')](0x0), SortearNumero(), StartConfetti(), $(_0x7f0a('0xb8'))[_0x7f0a('0xc0')](0x0));
+    }, 0x3e8);
+}
+
+function InitializeConfetti() {
+    var _0x5c1e8c = 0x0,
+        _0x3d592f = 0x0;
+    particles = [], animationComplete = ![];
+    for (var _0xb37628 = 0x0; _0xb37628 < mp; _0xb37628++) {
+        _0x3d592f >= 0xa && (_0x3d592f = 0x0, _0x5c1e8c++, _0x5c1e8c >= colorOptions['length'] && (_0x5c1e8c = 0x0)), _0x3d592f++;
+        var _0x53ea9d = colorOptions[_0x5c1e8c];
+        particles[_0x7f0a('0x19')]({
+            'x': Math['random']() * W,
+            'y': Math[_0x7f0a('0x10c')]() * H - H,
+            'r': randomFromTo(0xa, 0x1e),
+            'd': Math[_0x7f0a('0x10c')]() * mp + 0xa,
+            'color': _0x53ea9d,
+            'tilt': Math[_0x7f0a('0x1ba')](Math['random']() * 0xa) - 0xa,
+            'tiltAngleIncremental': Math['random']() * 0.07 + 0.05,
+            'tiltAngle': 0x0
+        });
+    }
+}
+
+function drawConfetti(_0x159627) {
+    return ctx[_0x7f0a('0x4a')](), ctx[_0x7f0a('0x176')] = _0x159627['r'] / 0x2, ctx['strokeStyle'] = _0x159627[_0x7f0a('0x1d8')], ctx['moveTo'](_0x159627['x'] + _0x159627['tilt'] + _0x159627['r'] / 0x4, _0x159627['y']), ctx['lineTo'](_0x159627['x'] + _0x159627[_0x7f0a('0x138')], _0x159627['y'] + _0x159627[_0x7f0a('0x138')] + _0x159627['r'] / 0x4), ctx[_0x7f0a('0xd4')]();
+};
+
+function draw() {
+    try {
+        ctx[_0x7f0a('0x18f')](0x0, 0x0, W, H);
+    } catch (_0x3b3128) {}
+    var _0x40b268 = [];
+    for (var _0x4ba1c2 = 0x0; _0x4ba1c2 < mp; _0x4ba1c2++) {
+        (function(_0x3652dc) {
+            _0x40b268[_0x7f0a('0x19')](drawConfetti(particles[_0x3652dc]));
+        }(_0x4ba1c2));
+    }
+    return update(), _0x40b268;
+}
+
+function randomFromTo(_0x29d2f2, _0x31691b) {
+    return Math[_0x7f0a('0x1ba')](Math[_0x7f0a('0x10c')]() * (_0x31691b - _0x29d2f2 + 0x1) + _0x29d2f2);
+}
+
+function update() {
+    var _0x4741de = 0x0;
+    angle += 0.01, tiltAngle += 0.1;
+    var _0x42906c;
+    for (var _0x301e82 = 0x0; _0x301e82 < mp; _0x301e82++) {
+        if (animationComplete) return;
+        var _0x2939fe = particles[_0x301e82];
+        if (confettiSettle && confettiActive) {
+            _0x301e82 % (settlemp / 0x2) == 0x0 && (_0x42906c = particles[randomFromTo(0x0, mp - 0x1)], _0x42906c['y'] > H - 0x50 && _0x42906c['y'] < H - 0x28 && (_0x42906c['x'] = Math[_0x7f0a('0x10c')]() * W, _0x42906c['y'] = -0xa, _0x42906c['r'] = randomFromTo(0xa, 0x1e), _0x42906c['d'] = Math[_0x7f0a('0x10c')]() * mp + 0xa, _0x42906c[_0x7f0a('0x193')] = Math[_0x7f0a('0x10c')]() * 0.07 + 0.05, _0x42906c['tiltAngle'] = 0x0));
+            if (_0x2939fe['y'] > H - 0x50 && _0x2939fe['y'] < H - 0x28) {
+                _0x4741de++;
+                continue;
+            }
+        }
+        _0x2939fe['tiltAngle'] += _0x2939fe[_0x7f0a('0x193')], !confettiActive && _0x2939fe['y'] < -0xf ? _0x2939fe['y'] = H + 0x64 : _0x2939fe['y'] += (Math[_0x7f0a('0x31')](angle + _0x2939fe['d']) + 0x3 + _0x2939fe['r'] / 0x2) / 0x2, _0x2939fe['x'] += Math[_0x7f0a('0x7f')](angle), _0x2939fe[_0x7f0a('0x138')] = Math['sin'](_0x2939fe[_0x7f0a('0x1d7')] - _0x301e82 / 0x3) * 0xf, _0x2939fe['y'] <= H && _0x4741de++, (_0x2939fe['x'] > W + 0x14 || _0x2939fe['x'] < -0x14 || _0x2939fe['y'] > H) && confettiActive && (_0x301e82 % 0x5 > 0x0 || _0x301e82 % 0x2 == 0x0 ? particles[_0x301e82] = {
+            'x': Math[_0x7f0a('0x10c')]() * W,
+            'y': -0xa,
+            'r': _0x2939fe['r'],
+            'd': _0x2939fe['d'],
+            'color': _0x2939fe['color'],
+            'tilt': Math[_0x7f0a('0x1ba')](Math[_0x7f0a('0x10c')]() * 0xa) - 0xa,
+            'tiltAngle': _0x2939fe['tiltAngle'],
+            'tiltAngleIncremental': _0x2939fe[_0x7f0a('0x193')]
+        } : Math[_0x7f0a('0x7f')](angle) > 0x0 ? particles[_0x301e82] = {
+            'x': -0x5,
+            'y': Math[_0x7f0a('0x10c')]() * H,
+            'r': _0x2939fe['r'],
+            'd': _0x2939fe['d'],
+            'color': _0x2939fe['color'],
+            'tilt': Math[_0x7f0a('0x1ba')](Math[_0x7f0a('0x10c')]() * 0xa) - 0xa,
+            'tiltAngleIncremental': _0x2939fe[_0x7f0a('0x193')]
+        } : particles[_0x301e82] = {
+            'x': W + 0x5,
+            'y': Math['random']() * H,
+            'r': _0x2939fe['r'],
+            'd': _0x2939fe['d'],
+            'color': _0x2939fe[_0x7f0a('0x1d8')],
+            'tilt': Math['floor'](Math[_0x7f0a('0x10c')]() * 0xa) - 0xa,
+            'tiltAngleIncremental': _0x2939fe[_0x7f0a('0x193')]
+        });
+    }
+    _0x4741de === 0x0 && StopConfetti();
+}
+
+function StartConfetti() {
+    $('#confettiCanvas')[_0x7f0a('0xc0')](0x0), W = window[_0x7f0a('0x15d')], H = window[_0x7f0a('0x1bb')], canvas['width'] = W - 0xa, canvas[_0x7f0a('0x2a')] = H - 0x3c,
+        function _0x32ed22() {
+            if (animationComplete) return null;
+            return animationHandler = requestAnimFrame(_0x32ed22), draw();
+        }();
+}
+
+function ClearTimers() {
+    clearTimeout(reactivationTimerHandler), clearTimeout(animationHandler);
+}
+
+function DeactivateConfetti() {
+    confettiActive = ![], ClearTimers();
+}
+
+function StopConfetti() {
+    animationComplete = !![], confettiSettle = ![];
+    if (ctx == undefined) return;
+    ctx[_0x7f0a('0x18f')](0x0, 0x0, W, H);
+}
+
+function RestartConfetti() {
+    ClearTimers(), StopConfetti(), reactivationTimerHandler = setTimeout(function() {
+        confettiActive = !![], animationComplete = ![], InitializeConfetti();
+    }, 0x64);
+}
+
+function SettleConfetti() {
+    confettiSettle = !![];
+}
+var getAPIData = null;
+
+function searchUsernameIG(_0x4393cf, _0x548db2) {
+    if (_0x548db2 === undefined) _0x548db2 = 0x0;
+    if (_0x4393cf === undefined || !_0x4393cf) return ![];
+    return new Promise(function(_0xbfd8f4, _0xa11ba2) {
+        if (getAPIData) getAPIData[_0x7f0a('0x122')]();
+        getAPIData = new XMLHttpRequest();
+        var _0x4217b5 = _0x7f0a('0x23') + _0x4393cf + _0x7f0a('0x1b0');
+        getAPIData[_0x7f0a('0x1c2')](_0x7f0a('0x79'), _0x4217b5), getAPIData[_0x7f0a('0x196')](), getAPIData[_0x7f0a('0x181')] = function() {
+            var _0x12ed01 = {};
+            try {
+                _0x12ed01 = JSON['parse'](getAPIData[_0x7f0a('0x164')]);
+            } catch (_0x27e270) {}
+            if (_0x12ed01['users']) return _0xbfd8f4(_0x12ed01['users']);
+            else {
+                if (_0x548db2) {
+                    console['log'](_0x7f0a('0xca') + _0x548db2), _0x4217b5 = API_URL + _0x7f0a('0x25') + escape(email) + _0x7f0a('0x5c') + escape(_0x4393cf) + _0x7f0a('0x5a') + current_time + _0x7f0a('0xda');
+                    var _0x2fc767 = new XMLHttpRequest();
+                    _0x2fc767[_0x7f0a('0x1c2')]('GET', _0x4217b5), _0x2fc767[_0x7f0a('0x196')](), _0x2fc767[_0x7f0a('0x181')] = function() {
+                        console[_0x7f0a('0x194')](_0x2fc767[_0x7f0a('0x164')]), console['log']('server\x20deu');
+                        var _0x322fd3 = JSON[_0x7f0a('0x110')](_0x2fc767['responseText']);
+                        return _0x322fd3['id'] ? (console[_0x7f0a('0x194')](_0x322fd3), _0xbfd8f4(_0x322fd3)) : _0xa11ba2({});
+                    };
+                } else return _0xa11ba2({});
+            }
+        };
+    });
+}
+
+function getUserInfoNew(_0x530fbc, _0x58b911) {
+    if (_0x530fbc === undefined || !_0x530fbc) return ![];
+    if (_0x58b911 === undefined) _0x58b911 = 0x0;
+    return new Promise(function(_0x97b4b1, _0x14e4df) {
+        var _0x471fea = new XMLHttpRequest(),
+            _0x2c67df = _0x7f0a('0x6e') + _0x530fbc + '/?__a=1';
+        _0x471fea[_0x7f0a('0x1c2')](_0x7f0a('0x79'), _0x2c67df), _0x471fea[_0x7f0a('0x196')](), _0x471fea[_0x7f0a('0x181')] = function() {
+            var _0x19648c = {};
+            try {
+                _0x19648c = JSON[_0x7f0a('0x110')](_0x471fea['responseText']);
+            } catch (_0x33ac08) {}
+            if (_0x19648c && _0x19648c[_0x7f0a('0xd9')] !== undefined && _0x19648c['graphql']) return _0x19648c[_0x7f0a('0xd9')][_0x7f0a('0x13')] = _0x19648c[_0x7f0a('0xd9')][_0x7f0a('0x13')] || {}, user = _0x19648c[_0x7f0a('0xd9')]['user'], _0x97b4b1(user);
+            else {
+                if (_0x58b911) {
+                    console[_0x7f0a('0x194')](_0x7f0a('0x17d')), _0x2c67df = API_URL + _0x7f0a('0x25') + escape(email) + _0x7f0a('0x5c') + escape(_0x530fbc) + _0x7f0a('0x5a') + current_time + '&register=&tryAgainServer=1';
+                    var _0x1e8244 = new XMLHttpRequest();
+                    _0x1e8244[_0x7f0a('0x1c2')]('GET', _0x2c67df), _0x1e8244[_0x7f0a('0x196')](), _0x1e8244[_0x7f0a('0x181')] = function() {
+                        console[_0x7f0a('0x194')](_0x7f0a('0x15')), console[_0x7f0a('0x194')](_0x1e8244[_0x7f0a('0x164')]);
+                        var _0x17a603 = JSON[_0x7f0a('0x110')](_0x1e8244[_0x7f0a('0x164')]);
+                        return _0x17a603['id'] ? (console[_0x7f0a('0x194')](_0x17a603), _0x97b4b1(_0x17a603)) : _0x14e4df({});
+                    };
+                } else return _0x14e4df({});
+            }
+        };
+    });
+}
+
+function afterLoad() {
+    $(_0x7f0a('0xd0'))[_0x7f0a('0x1e0')](0x0), closeAddProfiles(), $(_0x7f0a('0x1b9'))['fadeIn'](0x0);
+}
+
+function removeProfileRegulamento(_0x331415) {
+    $(_0x7f0a('0x48') + _0x331415 + '\x22]')[_0x7f0a('0x148')](), updateCounterProfileRegulamento();
+}
+
+function updateCounterProfileRegulamento() {
+    var _0x57d529 = $('#profilesRegulamento\x20.usernameTagRe')['length'];
+    $('#cloneResults')[_0x7f0a('0x20')](''), $(_0x7f0a('0x167'))['text'](_0x57d529);
+    if (_0x57d529 > 0x0) {
+        $(_0x7f0a('0x1cd'))[_0x7f0a('0x168')]('background', _0x7f0a('0xe8')), $('.btnRegulamento')[_0x7f0a('0x20')]('(' + _0x57d529 + _0x7f0a('0xb'));
+        if (vencedorInfo['owner']) {
+            _0x57d529 = $(_0x7f0a('0x6c'))['length'];
+            var _0x5357dc = _0x7f0a('0x114') + _0x7f0a('0x162') + user_info[_0x7f0a('0x180')] + _0x7f0a('0x11e') + '<img\x20src=\x22' + vencedorInfo[_0x7f0a('0x84')]['profile_pic_url'] + _0x7f0a('0xbc') + _0x7f0a('0x1bc') + _0x57d529 + '\x20' + (_0x57d529 > 0x1 ? _0x7f0a('0x142') : _0x7f0a('0x158')) + _0x7f0a('0x1d');
+            $('#vencedorVerificadorBtn,\x20.btnCheckRulesGo')[_0x7f0a('0xc0')](0x0)[_0x7f0a('0x20')](_0x5357dc), $('#vencedorVerificadorBtn')[_0x7f0a('0x168')]('background', '#fdfdfd');
+        }
+    } else $(_0x7f0a('0x1cd'))[_0x7f0a('0x168')](_0x7f0a('0xb6'), _0x7f0a('0x16a')), $(_0x7f0a('0x1cd'))[_0x7f0a('0x20')](_0x7f0a('0xf7')), $(_0x7f0a('0xb7'))[_0x7f0a('0x1e0')](0x0), $('.btnCheckRulesGo')[_0x7f0a('0x1e0')](0x0);
+    resetCheckRules(), saveProfileRegulamento(), _0x57d529 > MAX_CHECK_PROFILES ? $(_0x7f0a('0x215'))[_0x7f0a('0x1e0')](0x0) : $(_0x7f0a('0x215'))[_0x7f0a('0xc0')](0x0);
+}
+
+function syncProfileRegulamento() {
+    var _0x46a04a = localStorage[_0x7f0a('0x116')](_0x7f0a('0xf')) || '[]';
+    _0x46a04a = JSON[_0x7f0a('0x110')](_0x46a04a);
+    if (_0x46a04a)
+        for (i in _0x46a04a) {
+            var _0x150c1d = _0x46a04a[i] || {};
+            _0x150c1d[_0x7f0a('0x37')] && appendProfileRegulamento(_0x150c1d[_0x7f0a('0x37')], _0x150c1d[_0x7f0a('0x180')]);
+        }
+}
+
+function saveProfileRegulamento() {
+    var _0x1eb63c = [];
+    $(_0x7f0a('0x6c'))[_0x7f0a('0x8b')](function() {
+        var _0xfec1df = $(this)[_0x7f0a('0x1ed')](_0x7f0a('0x37')),
+            _0x11ae06 = $(this)[_0x7f0a('0x1ed')](_0x7f0a('0xa3'));
+        _0x1eb63c[_0x7f0a('0x19')]({
+            'username': _0xfec1df,
+            'profile_pic_url': _0x11ae06
+        }), localStorage[_0x7f0a('0x216')](_0x7f0a('0xf'), JSON[_0x7f0a('0xd2')](_0x1eb63c));
+    });
+}
+
+function appendProfileRegulamento(_0x1726f8, _0x43189f) {
+    var _0x42565a = $(_0x7f0a('0x6c'))[_0x7f0a('0x5')];
+    if (_0x42565a > MAX_CHECK_PROFILES) {
+        alert(_0x7f0a('0x4e'));
+        return;
+    }
+    var _0x5ca598 = $(_0x7f0a('0x48') + _0x1726f8 + '\x22]')[_0x7f0a('0x5')];
+    if (!_0x5ca598) $(_0x7f0a('0x165'))[_0x7f0a('0x1e')]('\x20<span\x20class=\x22usernameTagRe\x22\x20data-username=\x22' + _0x1726f8 + '\x22\x20data-pic=\x22' + _0x43189f + _0x7f0a('0xa9') + _0x43189f + _0x7f0a('0x1f6') + _0x1726f8 + _0x7f0a('0xe6') + _0x1726f8 + _0x7f0a('0x1f3'));
+    $(_0x7f0a('0x212'))['val'](''), updateCounterProfileRegulamento(), afterLoad();
+}
+
+function addProfileRegulamento(_0x2b87f8) {
+    !vencedorInfo[_0x7f0a('0x84')] && $(_0x7f0a('0xd0'))[_0x7f0a('0xc0')](0x0), $(_0x7f0a('0x1b9'))[_0x7f0a('0x20')](''), $('#inputProfileRegulamento')[_0x7f0a('0x1d2')](), _0x2b87f8 = _0x2b87f8[_0x7f0a('0x67')]('@', '')[_0x7f0a('0x1c7')](), getUserInfoNew(_0x2b87f8, 0x1)[_0x7f0a('0x155')](function(_0x4ac85a) {
+        console['log'](_0x4ac85a), appendProfileRegulamento(_0x4ac85a[_0x7f0a('0x37')], _0x4ac85a[_0x7f0a('0x180')]);
+    })[_0x7f0a('0x8d')](function(_0x19b474) {
+        console[_0x7f0a('0x194')](_0x19b474), alert(_0x7f0a('0x1e6')), afterLoad();
+    });
+}
+
+function openAddRegulamento(_0x5f3114) {
+    var _0x227783 = $(_0x7f0a('0x6c'))[_0x7f0a('0x5')];
+    if (vencedorInfo[_0x7f0a('0x84')] && _0x227783) return _0x5f3114 && openVencedor(0x1), ![];
+    var _0x5f2aba = $(_0x7f0a('0xe1'))[_0x7f0a('0x5')];
+    if (!_0x5f2aba) {
+        var _0x5e1448 = _0x7f0a('0x1ec') + _0x7f0a('0x11a') + _0x7f0a('0x73') + _0x7f0a('0x1f7') + _0x7f0a('0x14d');
+        return $(_0x7f0a('0x34'))[_0x7f0a('0x1e')](_0x5e1448), $(_0x7f0a('0xe1'))[_0x7f0a('0xc0')](0x0), $['get'](_0x7f0a('0xf9'), function(_0x182225) {
+            $(_0x7f0a('0x151'))[_0x7f0a('0x20')](_0x182225), syncProfileRegulamento();
+        }), !![];
+    }
+    return $(_0x7f0a('0xe1'))[_0x7f0a('0xc0')](0x0), ![];
+}
+
+function closeAddRegulamento() {
+    $(_0x7f0a('0xe1'))[_0x7f0a('0x1e0')](0x0);
+}
+
+function cloneResults() {
+    var _0x488d43 = $(_0x7f0a('0x165'))[_0x7f0a('0x20')]();
+    $(_0x7f0a('0x12'))['html'](_0x488d43);
+}
+var checkedUsernames = 0x0,
+    checkedUsernameValid = 0x0,
+    checkedUsernameInvalid = 0x0,
+    color = '',
+    stopConffetiV = 0x0;
+
+function callbackRules(_0x30aacd, _0x4b72cf) {
+    checkedUsernames++;
+    var _0x122b06 = '',
+        _0x2370ae = '';
+    _0x30aacd['is_following'] ? checkedUsernameValid++ : checkedUsernameInvalid++;
+    var _0x42c2a4 = $(_0x7f0a('0x6c'))['length'];
+    _0x30aacd[_0x7f0a('0x1cb')] ? color = _0x7f0a('0x13e') : color = _0x7f0a('0xc5'), $(_0x7f0a('0x48') + _0x4b72cf + '\x22]')[_0x7f0a('0x168')](_0x7f0a('0xb6'), color), console['log'](_0x30aacd), console[_0x7f0a('0x194')](checkedUsernames);
+    if (checkedUsernames >= _0x42c2a4) {
+        $(_0x7f0a('0x86'))[_0x7f0a('0xc0')](0x0);
+        if (_0x30aacd['is_private']) color = _0x7f0a('0xc5'), _0x2370ae = _0x7f0a('0x1ef') + vencedorInfo['owner']['username'] + _0x7f0a('0x51'), stopConffetiV = 0x1;
+        else checkedUsernames == checkedUsernameValid ? (color = _0x7f0a('0x13e'), _0x122b06 = _0x7f0a('0x128') + checkedUsernames + _0x7f0a('0x134'), checkedUsernames == 0x1 && (_0x122b06 = _0x7f0a('0x163') + _0x4b72cf + '\x20👏'), stopConffetiV = 0x0) : (color = _0x7f0a('0xc5'), _0x122b06 = _0x7f0a('0x1c6'), checkedUsernames == 0x1 && (_0x122b06 = '\x20não\x20seguiu\x20o\x20perfl\x20@' + _0x4b72cf + _0x7f0a('0x9b')), stopConffetiV = 0x1);
+        $('#checkRulesResult,\x20#vencedorVerificadorBtn')[_0x7f0a('0x168')](_0x7f0a('0xb6'), color), _0x122b06 = '@' + vencedorInfo[_0x7f0a('0x84')][_0x7f0a('0x37')] + _0x122b06, _0x2370ae && (_0x122b06 = _0x2370ae), $('#vencedorVerificadorBtn\x20.text,\x20#checkRulesResult')[_0x7f0a('0x146')](_0x122b06);
+        var _0x1ccfc3 = $(_0x7f0a('0x165'))['html']();
+        _0x1ccfc3 = _0x1ccfc3[_0x7f0a('0x67')](_0x7f0a('0xaa'), _0x7f0a('0x191')), !_0x30aacd[_0x7f0a('0x10a')] && $(_0x7f0a('0x12'))[_0x7f0a('0x20')](_0x1ccfc3), $(_0x7f0a('0x36'))[_0x7f0a('0x1e0')](0x0), closeAddRegulamento(), openVencedor(stopConffetiV), _0x30aacd[_0x7f0a('0x10a')] ? $(_0x7f0a('0x12'))['html']('') : $(_0x7f0a('0x12'))[_0x7f0a('0xc0')](0x0);
+    }
+    $(_0x7f0a('0x36'))[_0x7f0a('0xc0')](0x0), $(_0x7f0a('0x215'))[_0x7f0a('0xc0')](0x0);
+}
+
+function resetCheckRules() {
+    $(_0x7f0a('0xb7'))[_0x7f0a('0x168')]('background', _0x7f0a('0x1fb')), $('.usernameTagRe')['css'](_0x7f0a('0xb6'), _0x7f0a('0x95')), $(_0x7f0a('0x86'))[_0x7f0a('0x1e0')](0x0), $('#openAddProfiles')[_0x7f0a('0xc0')](0x0), $(_0x7f0a('0x36'))[_0x7f0a('0xc0')](0x0), cloneResults(), $(_0x7f0a('0xc4'))[_0x7f0a('0x146')](_0x7f0a('0x7b'));
+}
+var countCheckRulesGoInterval = {},
+    countCheckRulesGoCounter = 0x0;
+
+function countCheckRulesGo() {
+    if (countCheckRulesGoInterval);
+    clearInterval(countCheckRulesGoInterval), countCheckRulesGoCounter = 0x3b, countCheckRulesGoInterval = setInterval(function() {
+        countCheckRulesGoCounter--, $(_0x7f0a('0x16c'))[_0x7f0a('0x146')](_0x7f0a('0x21') + countCheckRulesGoCounter + '\x20s');
+    }, 0x3e8);
+}
+
+function checkRulesGo() {
+    if (checkingRules) return ![];
+    checkingRules = 0x1, checkedUsernames = 0x0, checkedUsernameValid = 0x0, checkedUsernameInvalid = 0x0, color = '', resetCheckRules();
+    var _0x3ccea5 = $('#vencedorVerificadorBtn\x20.text')[_0x7f0a('0x146')](),
+        _0x42abd0 = _0x3ccea5[_0x7f0a('0xb2')](_0x7f0a('0x12d')),
+        _0x5aa9df = $('#profilesRegulamento\x20.usernameTagRe')[_0x7f0a('0x5')],
+        _0x5c33df = _0x42abd0[0x1] || '';
+    _0x3ccea5 = _0x7f0a('0x74') + _0x5aa9df + '\x20patrocinador' + (_0x5aa9df > 0x1 ? 'es' : '') + _0x7f0a('0x1e9'), countCheckRulesGo(), $(_0x7f0a('0x198'))[_0x7f0a('0x1e0')](0x0), $(_0x7f0a('0xba'))[_0x7f0a('0x20')](_0x3ccea5), $(_0x7f0a('0xc4'))[_0x7f0a('0x146')]('Analisando...'), $(_0x7f0a('0x12'))[_0x7f0a('0xc0')](0x0)[_0x7f0a('0x20')](_0x7f0a('0x8e')), $(_0x7f0a('0x12b'))[_0x7f0a('0xc0')](0x0), $(_0x7f0a('0x36'))[_0x7f0a('0x1e0')](0x0);
+    var _0x1563ea = [];
+    $(_0x7f0a('0xe1'))[_0x7f0a('0x1b6')](_0x7f0a('0x8c'))[_0x7f0a('0x8b')](function() {
+        _0x1563ea['push']($(this)[_0x7f0a('0x1ed')](_0x7f0a('0x37')));
+    });
+    var _0x3d67e4 = {
+        'url': _0x7f0a('0x1d9') + vencedorInfo['owner'][_0x7f0a('0x37')] + _0x7f0a('0xa4') + vencedorInfo['owner']['id'],
+        'method': 'POST',
+        'timeout': 0x0,
+        'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        'data': {
+            'usernameTarget': JSON['stringify'](_0x1563ea)
+        },
+        'success': function(_0x439a47) {
+            checkingRules = 0x0;
+            if (countCheckRulesGoInterval) clearInterval(countCheckRulesGoInterval);
+            is_mobile && ($(_0x7f0a('0x1c3'))[_0x7f0a('0x1e0')](0x0), $(_0x7f0a('0xba'))['css'](_0x7f0a('0xc2'), '0')), _0x439a47 = _0x439a47 || {};
+            if (_0x439a47[_0x7f0a('0x177')] != 'ok') !forceCancelFollowingRequest && $(_0x7f0a('0x1ce'))[_0x7f0a('0x146')]('Falhou,\x20verifique\x20manualmente.'), forceCancelFollowingRequest = 0x0, $(_0x7f0a('0x12'))[_0x7f0a('0x20')]('');
+            else {
+                console[_0x7f0a('0x194')](_0x439a47);
+                var _0x590ce4 = _0x439a47[_0x7f0a('0x1ed')],
+                    _0x377586 = _0x590ce4['length'];
+                _0x377586 && _0x590ce4[_0x7f0a('0x1a0')](function(_0x5237fa) {
+                    callbackRules(_0x5237fa[_0x7f0a('0x13')], _0x5237fa[_0x7f0a('0x13')]['username']);
+                });
+            }
+        },
+        'timeout': 0xea60,
+        'error': function(_0x219607, _0x515527, _0x1b911b) {
+            if (countCheckRulesGoInterval) clearInterval(countCheckRulesGoInterval);
+            is_mobile && ($(_0x7f0a('0x1c3'))[_0x7f0a('0x1e0')](0x0), $('#vencedorVerificadorBtn\x20.text')['css']('top', '0')), checkingRules = 0x0, !forceCancelFollowingRequest && $(_0x7f0a('0x1ce'))[_0x7f0a('0x146')](_0x7f0a('0x160')), forceCancelFollowingRequest = 0x0, $(_0x7f0a('0x12'))[_0x7f0a('0x20')]('');
+        }
+    };
+    if (isfollowingRequest) try {
+        isfollowingRequest[_0x7f0a('0x122')]();
+    } catch (_0xc83e) {}
+    isfollowingRequest = $[_0x7f0a('0xc1')](_0x3d67e4), $(_0x7f0a('0x12b'))[_0x7f0a('0x1e0')](0x0);
+}
+
+function closeAddProfiles() {
+    $('#page-container')[_0x7f0a('0xc0')](0x0), $(_0x7f0a('0x1b7'))[_0x7f0a('0x1e0')](0x0), !vencedorInfo[_0x7f0a('0x84')] && $('#check_rules')[_0x7f0a('0xc0')](0x0), $('#searchUsernameIg')[_0x7f0a('0x1d2')]('');
+}
+
+function openAddProfiles() {
+    $(_0x7f0a('0x1a5'))[_0x7f0a('0x1e0')](0x0), resetCheckRules();
+    var _0x3d921c = $('#add_profiles')[_0x7f0a('0x5')];
+    if (!_0x3d921c) {
+        var _0x3a1c2a = '<div\x20class=\x22popupFullscreen\x22\x20id=\x22add_profiles\x22>' + _0x7f0a('0x11a') + '<div\x20class=\x22responseWidth\x20content\x22><br\x20/><img\x20src=\x22/./assets/images/loader.gif\x22\x20width=\x2240\x22\x20style=\x22vertical-align:middle;\x22\x20/></div>' + _0x7f0a('0x1f7') + '</div>';
+        return $(_0x7f0a('0x34'))[_0x7f0a('0x1e')](_0x3a1c2a), $('#add_profiles')[_0x7f0a('0xc0')](0x0), !vencedorInfo[_0x7f0a('0x84')] && $('#add_profiles')['fadeIn'](0x0), $['get'](_0x7f0a('0xab'), function(_0x5e1733) {
+            $(_0x7f0a('0x41'))['html'](_0x5e1733);
+        }), !![];
+    }
+    return $(_0x7f0a('0xe1'))[_0x7f0a('0x1e0')](0x0), $('#add_profiles')[_0x7f0a('0xc0')](0x0), ![];
+}
+$(_0x7f0a('0xe9'))['click'](function() {
+    var _0x173856 = $(_0x7f0a('0x212'))['val']();
+    addProfileRegulamento(_0x173856);
+});
+
+function closeUsernameAuth(_0x3cbbc7) {
+    checkAuthInterval && clearInterval(checkAuthInterval), $(_0x7f0a('0x12a'))[_0x7f0a('0x1e0')](0x0), $(_0x7f0a('0x1a5'))['fadeIn'](0x0), CURRENT_SORTEIO_URL !== undefined && CURRENT_SORTEIO_URL && _0x3cbbc7 !== undefined && GetMediaInfo(CURRENT_SORTEIO_URL);
+}
+
+function closePreLoad() {
+    $(_0x7f0a('0x19a'))[_0x7f0a('0x1e0')](0x0), $(_0x7f0a('0x1a5'))[_0x7f0a('0xc0')](0x0);
+}
+
+function openProfileRestricted() {
+    $(_0x7f0a('0x1a5'))['fadeOut'](0x0);
+    var _0x22d4bd = $('#ProfileRestricted')[_0x7f0a('0x5')];
+    _0x22d4bd && $('#ProfileRestricted')[_0x7f0a('0x148')]();
+    var _0xeb17cd = _0x7f0a('0x19d') + '<center>' + _0x7f0a('0x73') + _0x7f0a('0x1f7') + _0x7f0a('0x14d');
+    return $(_0x7f0a('0x34'))['append'](_0xeb17cd), $('#ProfileRestricted')[_0x7f0a('0xc0')](0x0), $[_0x7f0a('0x119')](API_URL + _0x7f0a('0x21e'), function(_0x2a3d54) {
+        $(_0x7f0a('0x4c'))['html'](_0x2a3d54);
+    }), !![], $(_0x7f0a('0x178'))[_0x7f0a('0xc0')](0x0), ![];
+}
+
+function openPreload() {
+    $(_0x7f0a('0x1a5'))[_0x7f0a('0x1e0')](0x0);
+    var _0x5927c8 = $('#pre_load')[_0x7f0a('0x5')];
+    _0x5927c8 && $(_0x7f0a('0x19a'))[_0x7f0a('0x148')]();
+    var _0x2059d6 = _0x7f0a('0xc3') + _0x7f0a('0x11a') + _0x7f0a('0x73') + _0x7f0a('0x1f7') + _0x7f0a('0x14d');
+    return $(_0x7f0a('0x34'))[_0x7f0a('0x1e')](_0x2059d6), $(_0x7f0a('0x19a'))[_0x7f0a('0xc0')](0x0), $[_0x7f0a('0x119')](_0x7f0a('0x203'), function(_0x4a52c7) {
+        $('#pre_load\x20.content')[_0x7f0a('0x20')](_0x4a52c7);
+    }), !![], $(_0x7f0a('0x12a'))[_0x7f0a('0xc0')](0x0), ![];
+}
+
+function openUsernameAuth() {
+    $(_0x7f0a('0x1a5'))[_0x7f0a('0x1e0')](0x0);
+    var _0x4bd191 = $(_0x7f0a('0x12a'))[_0x7f0a('0x5')];
+    _0x4bd191 && $(_0x7f0a('0x12a'))[_0x7f0a('0x148')]();
+    var _0x545cb5 = _0x7f0a('0x69') + _0x7f0a('0x11a') + _0x7f0a('0x73') + _0x7f0a('0x1f7') + _0x7f0a('0x14d');
+    return $('body')[_0x7f0a('0x1e')](_0x545cb5), $(_0x7f0a('0x12a'))[_0x7f0a('0xc0')](0x0), $['get'](APP_URL + _0x7f0a('0x218'), function(_0x2ed520) {
+        $(_0x7f0a('0x1dd'))[_0x7f0a('0x20')](_0x2ed520);
+    }), !![], $(_0x7f0a('0x12a'))[_0x7f0a('0xc0')](0x0), ![];
+}
+
+function getCookie(_0xfb6e3e) {
+    const _0x112140 = ';\x20' + document[_0x7f0a('0x13a')],
+        _0x1d2f86 = _0x112140[_0x7f0a('0xb2')](';\x20' + _0xfb6e3e + '=');
+    var _0x58cf71 = '';
+    if (_0x1d2f86[_0x7f0a('0x5')] === 0x2) _0x58cf71 = _0x1d2f86['pop']()[_0x7f0a('0xb2')](';')[_0x7f0a('0x4b')]();
+    if (_0x58cf71 === undefined) _0x58cf71 = '';
+    return _0x58cf71;
+}
+
+function areYouThere() {
+    if (usernameAuth[_0x7f0a('0x172')] && saveInServer) {
+        var _0xb18219 = $(_0x7f0a('0x214'))[_0x7f0a('0x5')];
+        _0xb18219 && !pinging && (pinging = 0x1, $[_0x7f0a('0xc1')]({
+            'type': _0x7f0a('0x18'),
+            'url': 'https://api.sorteiogram.com/api/ping.php',
+            'data': {
+                'auth': JSON[_0x7f0a('0xd2')](usernameAuth),
+                'total_comments': total_comments,
+                'total_comments_loaded': total_comments_loaded,
+                'current_end_cursor': end_cursor,
+                'shortcode': shortcode,
+                'done': DONE,
+                'pre_load': PRE_LOAD,
+                'pre_load_started': PRE_LOAD_STARTED,
+                'is_mobile': is_mobile,
+                'simulateServer': simulateServer
+            },
+            'success': function(_0x5a6456) {
+                if (!_0x5a6456[_0x7f0a('0x177')]) {
+                    WAIT_FOR_PING && _0x5a6456[_0x7f0a('0x82')] && (total_comments_loaded = _0x5a6456[_0x7f0a('0x82')], foundNewComment = total_comments_loaded), secondsEachRequest = 0x1, !BACKGROUND_LOADING && _0x5a6456[_0x7f0a('0xb6')] && (end_cursor = _0x5a6456[_0x7f0a('0xef')]), BACKGROUND_LOADING && !_0x5a6456[_0x7f0a('0xb6')] && (end_cursor = _0x5a6456[_0x7f0a('0xef')], total_comments_loaded = _0x5a6456[_0x7f0a('0x82')], foundNewComment = total_comments_loaded), BACKGROUND_LOADING = _0x5a6456[_0x7f0a('0xb6')], WAIT_FOR_PING = 0x0, BACKGROUND_LOADING && (total_comments_loaded = _0x5a6456[_0x7f0a('0x82')], CPM = _0x5a6456[_0x7f0a('0x8a')], calcularETA()), DONE = _0x5a6456[_0x7f0a('0x1e7')];
+                    if (DONE) {
+                        total_comments_loaded = _0x5a6456[_0x7f0a('0x82')], BACKGROUND_LOADING = 0x0, !PRE_LOAD && clearInterval(everySecondInterval);
+                        if (saveInServer && !BACKGROUND_LOADING) {
+                            if (loadCommentXHR) try {
+                                loadCommentXHR[_0x7f0a('0x122')]();
+                            } catch (_0x5975f8) {}
+                        }
+                    }
+                    pingEverySecond == 0x1 && (pingEverySecond = 0x5);
+                    if (total_comments_loaded && !CPM_BEFORE) CPM_BEFORE = total_comments_loaded;
+                } else {
+                    end_cursor = 0x0;
+                    if (total_comments) total_comments_loaded = total_comments;
+                }
+                pinging = 0x0;
+            },
+            'error': function(_0x21f919, _0x5c802b, _0x5c677f) {
+                pinging = 0x0;
+            },
+            'always': function() {
+                pinging = 0x0;
+            }
+        }));
+    }
+}
+
+function loadAuthUsername() {
+    if (user_info === undefined) return ![];
+    return $[_0x7f0a('0x16d')](API_URL + _0x7f0a('0x46'), {
+        'username': user_info[_0x7f0a('0x37')],
+        'code': getCookie(_0x7f0a('0xb4'))
+    }, function(_0x31353c) {
+        if (_0x31353c[_0x7f0a('0xf5')]) {
+            var _0x49c4c9 = _0x31353c[_0x7f0a('0xf5')] || {};
+            _0x49c4c9[_0x7f0a('0x37')] == user_info[_0x7f0a('0x37')] && (usernameAuth[_0x7f0a('0x172')] = _0x49c4c9[_0x7f0a('0x37')], $('.username')[_0x7f0a('0x20')](user_info[_0x7f0a('0x37')] + '\x20' + iconCheckMark), closeUsernameAuth());
+        }
+    }), !![];
+}
+
+function getLastComments() {
+    console[_0x7f0a('0x194')]('getLastComments'), gettingComments = 0x1, $[_0x7f0a('0xc1')]({
+        'type': _0x7f0a('0x18'),
+        'url': _0x7f0a('0x56') + shortcode,
+        'success': function(_0x10926c) {
+            htmloutput = '', gettingComments = 0x0;
+            if (_0x10926c && saveInServer) {
+                $[_0x7f0a('0x8b')](_0x10926c, function(_0x3753c0, _0x3f5391) {
+                    htmloutput = htmloutput + _0x7f0a('0x1be') + _0x3f5391[_0x7f0a('0x150')] + _0x7f0a('0x68') + _0x3f5391[_0x7f0a('0x84')]['id'] + _0x7f0a('0x175') + _0x3f5391[_0x7f0a('0x84')][_0x7f0a('0x37')] + _0x7f0a('0x3e') + _0x3f5391[_0x7f0a('0xe4')] + _0x7f0a('0xf6') + _0x3f5391['id'] + _0x7f0a('0x135') + _0x3f5391[_0x7f0a('0x84')][_0x7f0a('0x180')] + _0x7f0a('0x44') + _0x3f5391[_0x7f0a('0x150')] + _0x7f0a('0x154') + _0x3f5391[_0x7f0a('0x84')][_0x7f0a('0x37')] + _0x7f0a('0x1c1') + _0x3f5391[_0x7f0a('0x150')] + '\x22>' + _0x3f5391[_0x7f0a('0x146')] + '</span></li>';
+                }), $(_0x7f0a('0x11'))[_0x7f0a('0xc0')](0x0)['html'](htmloutput);
+                var _0xc8aa29 = document[_0x7f0a('0x19c')](_0x7f0a('0xf4'));
+                _0xc8aa29[_0x7f0a('0x94')] = _0xc8aa29[_0x7f0a('0x3')];
+            }
+        },
+        'always': function() {
+            gettingComments = 0x0;
+        },
+        'error': function() {
+            gettingComments = 0x0;
+        }
+    });
+}
+
+function endEffect() {
+    if (PRE_LOAD) return ![];
+    var _0x5954bc = $(_0x7f0a('0x112'))[_0x7f0a('0x20')]();
+    if (_0x5954bc[_0x7f0a('0x174')](_0x7f0a('0x130')) != -0x1) return ![];
+    var _0x786cf8 = 0x0;
+    if (saveInServer) _0x786cf8 = $('.commentList')[_0x7f0a('0x5')];
+    else _0x786cf8 = foundNewComment;
+    $(_0x7f0a('0x17c'))['html'](_0x7f0a('0x102')), loadedPercent = 0x64, $(_0x7f0a('0xb5'))[_0x7f0a('0x148')](), $(_0x7f0a('0x14f'))['css'](_0x7f0a('0x1ad'), _0x7f0a('0x30')), !$('#comments_user')['is'](_0x7f0a('0x1c')) && $('#comments_user')['fadeIn'](0x0), $(_0x7f0a('0x1b3'))[_0x7f0a('0x146')](0x64), $(_0x7f0a('0x112'))[_0x7f0a('0x1e')]('\x20carregados\x20' + iconCheckMark), saveInServer && _0x786cf8 < 0xc && getLastComments(), !$(_0x7f0a('0x139'))['is'](':visible') && $(_0x7f0a('0x1af'))[_0x7f0a('0xc0')](0x0), $(_0x7f0a('0x14f'))[_0x7f0a('0x168')](_0x7f0a('0x1ad'), _0x7f0a('0x30')), setTimeout(function() {
+        $(_0x7f0a('0x1af'))[_0x7f0a('0x1e0')](0x0), $(_0x7f0a('0x59'))[_0x7f0a('0x1e0')](0x1f4), $(_0x7f0a('0x107'))[_0x7f0a('0xc0')](0x0);
+    }, 0x7d0);
+}
+
+function jumpToVencedorLine(_0x5e7bb9, _0x4bbeb6) {
+    if (_0x4bbeb6 == undefined) _0x4bbeb6 = 0x12c;
+    var _0x338dc8 = $(_0x7f0a('0x1') + _0x5e7bb9);
+    return _0x338dc8[_0x7f0a('0x5')] && $(_0x7f0a('0x11'))['stop']()['animate']({
+        'scrollTop': 0x0
+    }, 0x0, function() {
+        $('#comments_user')[_0x7f0a('0x7c')]()[_0x7f0a('0x27')]({
+            'scrollTop': _0x338dc8[_0x7f0a('0x136')]()[_0x7f0a('0xc2')] - 0x1c2
+        }, _0x4bbeb6);
+    }), _0x338dc8;
+}
+$(_0x7f0a('0x6d'))['on'](_0x7f0a('0xd'), function(_0x1fcb55) {
+    _0x1fcb55[_0x7f0a('0x170')] == 0xd && GetMediaInfo($(_0x7f0a('0x6d'))[_0x7f0a('0x1d2')]());
+});
+
+function checkPreLoad() {
+    var _0x2f7ef0 = user_info['edge_followed_by'][_0x7f0a('0x1b8')];
+    if (_0x2f7ef0 > MIN_SAVEINSERVER && usernameAuth[_0x7f0a('0x172')] != user_info[_0x7f0a('0x37')]) return $(_0x7f0a('0x161'))[_0x7f0a('0x65')]('checked', ![]), PRE_LOAD = 0x0, CURRENT_SORTEIO_URL = '', openUsernameAuth(), ![];
+    $('.pre_load_checkbox')[_0x7f0a('0x65')](_0x7f0a('0x15c')) ? ($(_0x7f0a('0x11c'))[_0x7f0a('0x20')](_0x7f0a('0xc')), $(_0x7f0a('0x1d5'))['css'](_0x7f0a('0xb6'), _0x7f0a('0xe8')), PRE_LOAD = 0x1) : ($(_0x7f0a('0x11c'))['html'](_0x7f0a('0x9')), $(_0x7f0a('0x1d5'))[_0x7f0a('0x168')](_0x7f0a('0xb6'), _0x7f0a('0x16a')), PRE_LOAD = 0x0), closePreLoad();
+}
+
+function loadMorePosts() {
+    if (!LOAD_POSTS_AFTER) return ![];
+    var _0x4c94a4 = _0x7f0a('0xeb') + user_info['id'] + '%22,%22first%22:50,%22after%22:%22' + LOAD_POSTS_AFTER + _0x7f0a('0x39'),
+        _0x4c0ecc = '';
+    $(_0x7f0a('0x13d'))['fadeIn'](0x0), $(_0x7f0a('0x35'))['fadeOut'](0x0), $[_0x7f0a('0x119')](_0x4c94a4, function(_0xcbcac) {
+        $('#load_more_posts')[_0x7f0a('0x1e0')](0x0), $('#load_more_btn')['fadeIn'](0x0);
+        var _0x12fb2b = _0xcbcac[_0x7f0a('0x1ed')]['user'] || {};
+        _0x12fb2b = _0x12fb2b[_0x7f0a('0x6')] || {};
+        var _0x4cdb89 = _0x12fb2b[_0x7f0a('0x50')] || {};
+        LOAD_POSTS_AFTER = _0x4cdb89['end_cursor'];
+        var _0x3bf65d = _0x12fb2b[_0x7f0a('0x213')];
+        console['log'](_0x3bf65d), _0x3bf65d && ($[_0x7f0a('0x8b')](_0x3bf65d, function(_0x4c2cf0, _0x4173f6) {
+            _0x4173f6 = _0x4173f6['node'], _0x4173f6[_0x7f0a('0x149')] = _0x7f0a('0x2b') + _0x4173f6[_0x7f0a('0x12c')] + '/';
+            var _0x39bb81 = _0x7f0a('0x60') + _0x4173f6[_0x7f0a('0x149')] + _0x7f0a('0x2e') + _0x4c2cf0 + ')';
+            _0x4c0ecc = _0x4c0ecc + '<div\x20style=\x22background-image:url(' + _0x4173f6['thumbnail_resources'][0x0][_0x7f0a('0xa6')] + _0x7f0a('0x91') + _0x39bb81 + _0x7f0a('0xac') + _0x7f0a('0xa') + _0x7f0a('0x3f') + numberWithCommas(_0x4173f6[_0x7f0a('0x131')][_0x7f0a('0x1b8')]) + _0x7f0a('0x14d') + '</div>\x20';
+        }), $(_0x7f0a('0x72'))[_0x7f0a('0x1e')](_0x4c0ecc));
+    })['fail'](function() {
+        $(_0x7f0a('0x13d'))[_0x7f0a('0x1e0')](0x0), $(_0x7f0a('0x35'))[_0x7f0a('0xc0')](0x0);
+    });
+}
+var checkingCode = 0x0;
+
+function checkCode(_0x133dab) {
+    if (checkingCode) return ![];
+    checkingCode = 0x1, _0x133dab = _0x133dab || 0x0, $('#btnCheckCode,\x20#btnWithoutAuth')['fadeOut'](0x0), $(_0x7f0a('0x1c4'))[_0x7f0a('0xc0')](0x0), $[_0x7f0a('0x16d')](_0x7f0a('0x11d'), usernameAuth, function(_0x5484eb) {
+        checkingCode = 0x0;
+        if (!_0x5484eb[_0x7f0a('0xbf')]) {
+            if (!_0x133dab) alert(_0x7f0a('0xd1') + user_info[_0x7f0a('0x37')] + _0x7f0a('0x1bd') + usernameAuth[_0x7f0a('0xb4')] + _0x7f0a('0x20e'));
+        } else successAuthUsername(), $[_0x7f0a('0x16d')]('/ajax/registerAuthDomain.php', usernameAuth);
+        $(_0x7f0a('0x108'))[_0x7f0a('0xc0')](0x0), $(_0x7f0a('0x1c4'))['fadeOut'](0x0);
+    });
+}
+
+function successAuthUsername() {
+    checkAuthInterval && clearInterval(checkAuthInterval), usernameAuth[_0x7f0a('0x172')] = user_info['username'], $(_0x7f0a('0x52'))[_0x7f0a('0x20')](_0x7f0a('0xd7')), $(_0x7f0a('0x93'))[_0x7f0a('0x146')](user_info[_0x7f0a('0x37')] + '\x20✅'), $('#h2AuthUsername')['text']('Confirmado\x20com\x20sucesso\x20@' + user_info[_0x7f0a('0x37')] + _0x7f0a('0x19e'));
+}
